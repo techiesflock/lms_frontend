@@ -1,0 +1,24 @@
+import type { Metadata } from "next";
+import { MarketingChrome } from "@/components/dream-lms/shell/MarketingChrome";
+import { DashboardBreadcrumb } from "@/components/dream-lms/dashboard/DashboardBreadcrumb";
+import { InstructorDashboardLayout } from "@/components/dream-lms/dashboard/instructor/InstructorDashboardLayout";
+import { InstructorDashboardHomeBody } from "@/components/dream-lms/dashboard/instructor/instructorBodies";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Instructor dashboard — Dashboard.",
+};
+
+export default function Page() {
+  return (
+    <MarketingChrome>
+      <DashboardBreadcrumb
+        title="Dashboard"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Dashboard" }]}
+      />
+      <InstructorDashboardLayout activeHref="/instructor-dashboard">
+        <InstructorDashboardHomeBody />
+      </InstructorDashboardLayout>
+    </MarketingChrome>
+  );
+}
