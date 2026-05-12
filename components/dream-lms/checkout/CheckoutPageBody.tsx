@@ -6,6 +6,27 @@ export function CheckoutPageBody() {
     <div className="content">
       <div className="container">
         <div className="checkout-content">
+          <div className="card border-0 shadow-sm mb-4">
+            <div className="card-body">
+              <div className="row text-center row-gap-3">
+                {["Billing", "Payment", "Confirmation"].map((step, index) => (
+                  <div className="col-md-4" key={step}>
+                    <div className="d-flex align-items-center justify-content-center gap-2">
+                      <span
+                        className={`d-inline-flex align-items-center justify-content-center rounded-circle ${
+                          index === 0 ? "bg-secondary text-white" : "bg-light text-gray-9"
+                        }`}
+                        style={{ width: 36, height: 36 }}
+                      >
+                        {index + 1}
+                      </span>
+                      <span className="fw-medium">{step}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="col-lg-8">
               <div className="checkout-item-1">
@@ -167,7 +188,7 @@ export function CheckoutPageBody() {
                       </div>
                       <div className="col-md-12">
                         <div className="d-flex align-items-center justify-content-end">
-                          <Link href="#" className="btn btn-secondary rounded-pill">
+                          <Link href="/order-success" className="btn btn-secondary rounded-pill">
                             Pay $225.20
                           </Link>
                         </div>
@@ -194,7 +215,7 @@ export function CheckoutPageBody() {
                       </div>
                       <div className="col-md-12">
                         <div className="d-flex align-items-center justify-content-end">
-                          <Link href="#" className="btn btn-secondary rounded-pill">
+                          <Link href="/order-success" className="btn btn-secondary rounded-pill">
                             Pay $225.20
                           </Link>
                         </div>
@@ -221,7 +242,7 @@ export function CheckoutPageBody() {
                       </div>
                       <div className="col-md-12">
                         <div className="d-flex align-items-center justify-content-end">
-                          <Link href="#" className="btn btn-secondary rounded-pill">
+                          <Link href="/order-success" className="btn btn-secondary rounded-pill">
                             Pay $225.20
                           </Link>
                         </div>
@@ -239,7 +260,7 @@ export function CheckoutPageBody() {
                 <div className="checkout-item-3 bg-light p-3 rounded-3 border mb-3">
                   <div className="row row-gap-2 mb-3">
                     <div className="col-md-12 d-flex align-items-center">
-                      <div className="order-img flex-shrink-0 me-3">
+                      <div className="order-img shrink-0 me-3">
                         <img src={assetPath("img/course/course-01.jpg")} alt="" className="img-fluid h-100 w-100" />
                         <Link href="#" className="btn p-1 rounded-circle" aria-label="Remove">
                           <i className="isax isax-trash" />
@@ -255,7 +276,7 @@ export function CheckoutPageBody() {
                   </div>
                   <div className="row row-gap-2">
                     <div className="col-md-12 d-flex align-items-center">
-                      <div className="order-img flex-shrink-0 me-3">
+                      <div className="order-img shrink-0 me-3">
                         <img src={assetPath("img/course/course-03.jpg")} alt="" className="img-fluid h-100 w-100" />
                         <Link href="#" className="btn p-1 rounded-circle" aria-label="Remove">
                           <i className="isax isax-trash" />
@@ -281,6 +302,17 @@ export function CheckoutPageBody() {
                 <div className="total d-flex align-items-center justify-content-between">
                   <h6 className="mb-0">Total</h6>
                   <h4 className="mb-0">$225.20</h4>
+                </div>
+                <div className="d-grid gap-2 mt-4">
+                  <Link href="/order-success" className="btn btn-secondary rounded-pill">
+                    View success state
+                  </Link>
+                  <Link href="/order-failed" className="btn btn-outline-danger rounded-pill">
+                    View failed state
+                  </Link>
+                  <Link href="/invoice" className="btn btn-outline-secondary rounded-pill">
+                    View invoice
+                  </Link>
                 </div>
               </div>
             </div>

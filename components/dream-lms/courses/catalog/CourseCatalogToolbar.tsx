@@ -11,7 +11,7 @@ export function CourseCatalogToolbar({ variant }: { variant: "grid" | "list" }) 
         </div>
         <div className="col-lg-8">
           <div className="show-filter add-course-info">
-            <form action="#">
+            <form action="/search-results">
               <div className="d-sm-flex justify-content-center justify-content-lg-end mb-1 mb-lg-0">
                 <div className="view-icons mb-2 mb-sm-0">
                   <Link href="/course-grid" className={`grid-view${variant === "grid" ? " active" : ""}`}>
@@ -29,7 +29,7 @@ export function CourseCatalogToolbar({ variant }: { variant: "grid" | "list" }) 
                 </select>
                 <div className=" search-group">
                   <i className="isax isax-search-normal-1" />
-                  <input type="text" className="form-control" placeholder="Search" />
+                  <input type="text" name="q" className="form-control" placeholder="Search" defaultValue="react design" />
                 </div>
               </div>
             </form>

@@ -3,7 +3,7 @@ import Link from "next/link";
 const WIZARD_STEPS = [
   "Course Information",
   "Course Media",
-  "Curriculam",
+  "Curriculum",
   "Additional information",
   "Pricing",
 ] as const;
@@ -178,6 +178,162 @@ export function AddCourseWizardBody() {
                         Next <i className="isax isax-arrow-right-3 ms-1" />
                       </Link>
                     </div>
+                  </div>
+                </fieldset>
+                <fieldset className="form-inner wizard-form-card mt-4" id="add-course-step-2">
+                  <div className="title">
+                    <h5>Course Media</h5>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="bg-light border p-4 rounded-3 text-center h-100">
+                        <i className="isax isax-gallery-add fs-1 text-secondary mb-3" />
+                        <h6 className="mb-2">Course thumbnail</h6>
+                        <p className="fs-14 text-muted">Static upload state for course image, 1280x720 recommended.</p>
+                        <button type="button" className="btn btn-outline-secondary rounded-pill btn-sm">
+                          Choose image
+                        </button>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="bg-light border p-4 rounded-3 text-center h-100">
+                        <i className="isax isax-video-add fs-1 text-secondary mb-3" />
+                        <h6 className="mb-2">Promo video</h6>
+                        <p className="fs-14 text-muted">Static upload state for marketplace preview video.</p>
+                        <button type="button" className="btn btn-outline-secondary rounded-pill btn-sm">
+                          Choose video
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset className="form-inner wizard-form-card mt-4" id="add-course-step-3">
+                  <div className="title d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <h5>Curriculum Builder</h5>
+                    <button type="button" className="btn btn-primary rounded-pill btn-sm">
+                      <i className="isax isax-add me-1" />
+                      Add Section
+                    </button>
+                  </div>
+                  {[
+                    { section: "Getting Started", lessons: ["Welcome lesson", "Setup files", "Project overview"] },
+                    { section: "Core Concepts", lessons: ["Reusable components", "Responsive layouts", "Final exercise"] },
+                  ].map((group, groupIndex) => (
+                    <div className="bg-light border rounded-3 p-3 mb-3" key={group.section}>
+                      <div className="d-flex align-items-center justify-content-between mb-3">
+                        <h6 className="mb-0">
+                          Section {groupIndex + 1}: {group.section}
+                        </h6>
+                        <button type="button" className="btn btn-outline-secondary btn-sm rounded-pill">
+                          Add Lesson
+                        </button>
+                      </div>
+                      {group.lessons.map((lesson, lessonIndex) => (
+                        <div
+                          className="d-flex align-items-center justify-content-between bg-white border rounded-2 p-3 mb-2"
+                          key={lesson}
+                        >
+                          <span>
+                            <i className="isax isax-video-play me-2 text-secondary" />
+                            Lesson {lessonIndex + 1}: {lesson}
+                          </span>
+                          <span className="badge bg-light text-gray-9">08:24</span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </fieldset>
+
+                <fieldset className="form-inner wizard-form-card mt-4" id="add-course-step-4">
+                  <div className="title">
+                    <h5>Additional Information</h5>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="input-block">
+                        <label className="form-label">Certificate availability</label>
+                        <select className="select form-control" defaultValue="yes">
+                          <option value="yes">Certificate included</option>
+                          <option value="no">No certificate</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="input-block">
+                        <label className="form-label">Course status</label>
+                        <select className="select form-control" defaultValue="draft">
+                          <option value="draft">Draft</option>
+                          <option value="pending">Pending review</option>
+                          <option value="published">Published</option>
+                          <option value="rejected">Rejected</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="col-md-12">
+                      <div className="input-block">
+                        <label className="form-label">Instructor notes</label>
+                        <textarea
+                          className="form-control"
+                          rows={4}
+                          defaultValue="Static notes for reviewer: includes preview video, assignments, and certificate."
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset className="form-inner wizard-form-card mt-4" id="add-course-step-5">
+                  <div className="title">
+                    <h5>Pricing & Publish Checklist</h5>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-4">
+                      <div className="input-block">
+                        <label className="form-label">List Price</label>
+                        <input type="text" className="form-control" defaultValue="$99" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="input-block">
+                        <label className="form-label">Sale Price</label>
+                        <input type="text" className="form-control" defaultValue="$49" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="input-block">
+                        <label className="form-label">Access</label>
+                        <select className="select form-control" defaultValue="lifetime">
+                          <option value="lifetime">Lifetime access</option>
+                          <option value="free">Free course</option>
+                          <option value="subscription">Subscription only</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-light border rounded-3 p-3 mb-4">
+                    {[
+                      "Basic info completed",
+                      "Thumbnail and promo video added",
+                      "At least one curriculum section added",
+                      "Pricing reviewed",
+                      "Ready to submit for review",
+                    ].map((item, index) => (
+                      <div className="form-check mb-2" key={item}>
+                        <input className="form-check-input" type="checkbox" id={`publish-check-${index}`} defaultChecked={index < 4} />
+                        <label className="form-check-label" htmlFor={`publish-check-${index}`}>
+                          {item}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="add-form-btn widget-next-btn submit-btn d-flex justify-content-end mb-0 gap-2">
+                    <Link href="/instructor-course" className="btn btn-outline-secondary rounded-pill">
+                      Save Draft
+                    </Link>
+                    <Link href="/instructor-course" className="btn main-btn">
+                      Submit for Review <i className="isax isax-arrow-right-3 ms-1" />
+                    </Link>
                   </div>
                 </fieldset>
               </div>

@@ -37,6 +37,54 @@ function StatCard({
   );
 }
 
+function StudentEmptyState({
+  icon,
+  title,
+  description,
+  actionHref,
+  actionLabel,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+  actionHref: string;
+  actionLabel: string;
+}) {
+  return (
+    <div className="card border-0 shadow-sm">
+      <div className="card-body p-4 p-lg-5 text-center">
+        <span className="d-inline-flex align-items-center justify-content-center rounded-circle bg-light mb-3 p-4">
+          <i className={`${icon} fs-1 text-secondary`} />
+        </span>
+        <h5 className="mb-2">{title}</h5>
+        <p className="text-muted mb-4">{description}</p>
+        <Link href={actionHref} className="btn btn-secondary rounded-pill">
+          {actionLabel}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function StudentSkeletonPreview() {
+  return (
+    <div className="card border-0 shadow-sm">
+      <div className="card-body">
+        <div className="d-flex align-items-center gap-3 mb-4">
+          <span className="placeholder rounded-circle col-2" style={{ width: 52, height: 52 }} />
+          <div className="flex-grow-1">
+            <span className="placeholder col-7 mb-2" />
+            <span className="placeholder col-5" />
+          </div>
+        </div>
+        <span className="placeholder col-12 mb-2" />
+        <span className="placeholder col-10 mb-2" />
+        <span className="placeholder col-8" />
+      </div>
+    </div>
+  );
+}
+
 export function StudentDashboardHomeBody() {
   return (
     <>
@@ -63,6 +111,20 @@ export function StudentDashboardHomeBody() {
         <StatCard icon="img/icon/graduation.svg" label="Enrolled Courses" value="12" boxClass="bg-primary-transparent" />
         <StatCard icon="img/icon/book.svg" label="Active Courses" value="03" boxClass="bg-secondary-transparent" />
         <StatCard icon="img/icon/bookmark.svg" label="Completed Courses" value="10" boxClass="bg-success-transparent" />
+      </div>
+      <div className="row mb-4">
+        <div className="col-lg-7 mb-4 mb-lg-0">
+          <StudentEmptyState
+            icon="isax isax-book"
+            title="No courses enrolled yet"
+            description="Static empty dashboard state for a new learner before their first enrollment."
+            actionHref="/course-grid"
+            actionLabel="Browse courses"
+          />
+        </div>
+        <div className="col-lg-5">
+          <StudentSkeletonPreview />
+        </div>
       </div>
       <div>
         <h5 className="fs-18">AI Learning Insights</h5>
@@ -359,6 +421,15 @@ export function StudentCoursesBody() {
           progress="0%"
         />
       </div>
+      <div className="mt-4">
+        <StudentEmptyState
+          icon="isax isax-teacher"
+          title="No enrolled courses"
+          description="Static enrolled-course empty state for learners who have not purchased or joined a course yet."
+          actionHref="/course-grid"
+          actionLabel="Find your first course"
+        />
+      </div>
     </>
   );
 }
@@ -389,6 +460,13 @@ export function StudentCertificatesBody() {
           </div>
         ))}
       </div>
+      <StudentEmptyState
+        icon="isax isax-award"
+        title="No certificates yet"
+        description="Static certificate empty state shown before a learner completes their first eligible course."
+        actionHref="/student-courses"
+        actionLabel="Continue learning"
+      />
     </>
   );
 }
@@ -419,6 +497,13 @@ export function StudentWishlistBody() {
           </div>
         ))}
       </div>
+      <StudentEmptyState
+        icon="isax isax-heart"
+        title="Wishlist is empty"
+        description="Static wishlist empty state for learners who have not saved any courses yet."
+        actionHref="/course-grid"
+        actionLabel="Explore courses"
+      />
     </>
   );
 }
@@ -498,6 +583,13 @@ export function StudentQuizBody() {
           </tbody>
         </table>
       </div>
+      <StudentEmptyState
+        icon="isax isax-receipt"
+        title="No orders yet"
+        description="Static order-history empty state shown before a learner buys their first course."
+        actionHref="/course-grid"
+        actionLabel="Shop courses"
+      />
     </>
   );
 }

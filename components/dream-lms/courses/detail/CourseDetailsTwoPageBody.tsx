@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { COURSE_CATALOG_ITEMS } from "@/config/courseCatalog";
 import { assetPath } from "@/lib/assetPath";
 import { CourseCurriculumAccordion } from "./CourseCurriculumAccordion";
 
@@ -181,6 +182,9 @@ export function CourseDetailsTwoPageBody() {
                   </ol>
                 </div>
               </div>
+              <CourseFaqCard />
+              <CourseReviewsCard />
+              <RelatedCourses />
               <div className="card">
                 <div className="card-body">
                   <h5 className="subs-title mb-3">Post A comment</h5>
@@ -222,26 +226,29 @@ export function CourseDetailsTwoPageBody() {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="course-sidebar-sec mt-0">
+            <div className="course-sidebar-sec mt-0 sticky-top">
               <div className="card mb-4">
                 <div className="card-body">
                   <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h2 className="text-success fs-30">FREE</h2>
+                    <h2 className="text-success fs-30">$49</h2>
                     <p className="fs-14 mb-0">
                       <span className="text-decoration-line-through me-2">$99.00</span>50% off
                     </p>
                   </div>
                   <div className="d-flex justify-content-between gap-3 wishlist-btns">
                     <Link className="btn d-flex btn-wish" href="#">
-                      <i className="isax isax-heart me-1 fs-18" />
-                      Add to Wishlist
+                      <i className="isax isax-heart5 me-1 fs-18 text-danger" />
+                      Wishlisted
                     </Link>
                     <Link className="btn d-flex btn-wish" href="#">
                       <i className="ti ti-share me-1 fs-18" />
                       Share
                     </Link>
                   </div>
-                  <Link href="/cart" className="btn btn-primary w-100 mt-3 btn-enroll">
+                  <Link href="/cart" className="btn btn-dark w-100 mt-3">
+                    Add to Cart
+                  </Link>
+                  <Link href="/checkout" className="btn btn-primary w-100 mt-2 btn-enroll">
                     Enroll Now
                   </Link>
                 </div>
@@ -317,5 +324,150 @@ export function CourseDetailsTwoPageBody() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CourseFaqCard() {
+  const faqs = [
+    {
+      q: "Do I get lifetime access?",
+      a: "Yes. This static UI shows the lifetime access promise that appears after purchase.",
+    },
+    {
+      q: "Is there a certificate?",
+      a: "Yes. Learners see certificate eligibility after completing all required lessons and quizzes.",
+    },
+    {
+      q: "Can I preview lessons before buying?",
+      a: "Preview lessons are marked inside the curriculum accordion and the hero preview opens a video.",
+    },
+  ];
+
+  return (
+    <div className="card mb-4">
+      <div className="card-body">
+        <h5 className="subs-title mb-3">Frequently asked questions</h5>
+        <div className="accordion accordion-customicon1 accordions-items-seperate" id="course-faq">
+          {faqs.map((faq, index) => (
+            <div className="accordion-item" key={faq.q}>
+              <h2 className="accordion-header" id={`faq-heading-${index}`}>
+                <a
+                  href="#"
+                  className={`accordion-button${index === 0 ? "" : " collapsed"}`}
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#faq-collapse-${index}`}
+                  aria-expanded={index === 0}
+                  aria-controls={`faq-collapse-${index}`}
+                >
+                  {faq.q}
+                  <i className="fa-solid fa-chevron-down" />
+                </a>
+              </h2>
+              <div
+                id={`faq-collapse-${index}`}
+                className={`accordion-collapse collapse${index === 0 ? " show" : ""}`}
+                aria-labelledby={`faq-heading-${index}`}
+                data-bs-parent="#course-faq"
+              >
+                <div className="accordion-body">
+                  <p className="mb-0">{faq.a}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CourseReviewsCard() {
+  const reviews = [
+    {
+      name: "Sarah Johnson",
+      text: "Clear roadmap, strong examples, and the projects feel practical for a portfolio.",
+      rating: "5.0",
+    },
+    {
+      name: "Lucas Garcia",
+      text: "Good course structure. I would like more downloadable worksheets in the research section.",
+      rating: "4.5",
+    },
+  ];
+
+  return (
+    <div className="card mb-4">
+      <div className="card-body">
+        <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <h5 className="subs-title mb-1">Learner reviews</h5>
+            <p className="mb-0 text-muted fs-14">Static review list with filter and sort controls.</p>
+          </div>
+          <select className="form-select w-auto" aria-label="Sort course reviews">
+            <option>Most recent</option>
+            <option>Highest rated</option>
+            <option>Lowest rated</option>
+          </select>
+        </div>
+        {reviews.map((review) => (
+          <div className="border rounded-3 p-3 mb-3" key={review.name}>
+            <div className="d-flex justify-content-between gap-3 flex-wrap">
+              <h6 className="mb-1">{review.name}</h6>
+              <span className="d-inline-flex align-items-center text-warning">
+                <i className="fa-solid fa-star me-1" />
+                {review.rating}
+              </span>
+            </div>
+            <p className="mb-0 text-muted">{review.text}</p>
+          </div>
+        ))}
+        <Link href="/student-reviews" className="btn btn-outline-secondary btn-sm">
+          View all reviews
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function RelatedCourses() {
+  return (
+    <div className="card mb-4">
+      <div className="card-body">
+        <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <h5 className="subs-title mb-0">Related courses</h5>
+          <Link href="/course-grid" className="view-all">
+            View All
+          </Link>
+        </div>
+        <div className="row">
+          {COURSE_CATALOG_ITEMS.slice(0, 2).map((course) => (
+            <div className="col-md-6" key={course.id}>
+              <div className="course-item-two course-item mx-0 mb-0">
+                <div className="course-img">
+                  <Link href="/course-details">
+                    <img src={assetPath(course.image)} alt="" className="img-fluid" />
+                  </Link>
+                </div>
+                <div className="course-content">
+                  <span className="badge badge-light rounded-pill bg-light d-inline-flex align-items-center fs-13 fw-medium mb-2">
+                    {course.category}
+                  </span>
+                  <h6 className="title mb-2">
+                    <Link href="/course-details">{course.title}</Link>
+                  </h6>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <span className="text-warning">
+                      <i className="fa-solid fa-star me-1" />
+                      {course.rating}
+                    </span>
+                    <h6 className="text-secondary mb-0">{course.price}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

@@ -131,12 +131,35 @@ export function InstructorCourseBody() {
               <th>Courses</th>
               <th>Enrolled</th>
               <th>Status</th>
+              <th className="text-end">Actions</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { img: "img/instructor/instructor-table-01.jpg", title: "Complete HTML, CSS and Javascript Course", en: "0" },
-              { img: "img/instructor/instructor-table-04.jpg", title: "Build Responsive Real World Websites", en: "12" },
+              {
+                img: "img/instructor/instructor-table-01.jpg",
+                title: "Complete HTML, CSS and Javascript Course",
+                en: "0",
+                status: "Draft",
+              },
+              {
+                img: "img/instructor/instructor-table-04.jpg",
+                title: "Build Responsive Real World Websites",
+                en: "12",
+                status: "Published",
+              },
+              {
+                img: "img/instructor/instructor-table-02.jpg",
+                title: "React UI Components Masterclass",
+                en: "4",
+                status: "Pending Review",
+              },
+              {
+                img: "img/instructor/instructor-table-03.jpg",
+                title: "Design Systems for Teams",
+                en: "0",
+                status: "Rejected",
+              },
             ].map((r) => (
               <tr key={r.title}>
                 <td>
@@ -150,7 +173,19 @@ export function InstructorCourseBody() {
                   </div>
                 </td>
                 <td>{r.en}</td>
-                <td>Published</td>
+                <td>
+                  <span className={courseStatusClass(r.status)}>{r.status}</span>
+                </td>
+                <td>
+                  <div className="d-flex justify-content-end gap-2">
+                    <Link href="/instructor-course-edit" className="btn btn-sm btn-outline-secondary rounded-pill">
+                      Edit
+                    </Link>
+                    <Link href="/course-details" className="btn btn-sm btn-primary rounded-pill">
+                      Preview
+                    </Link>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -158,6 +193,13 @@ export function InstructorCourseBody() {
       </div>
     </>
   );
+}
+
+function courseStatusClass(status: string) {
+  if (status === "Published") return "badge bg-success-transparent text-success";
+  if (status === "Pending Review") return "badge bg-warning-transparent text-warning";
+  if (status === "Rejected") return "badge bg-danger-transparent text-danger";
+  return "badge bg-light text-gray-9";
 }
 
 export function InstructorAnnouncementsBody() {

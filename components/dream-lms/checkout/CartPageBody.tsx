@@ -31,10 +31,15 @@ export function CartPageBody() {
             <div>
               <div className="cart-head border-bottom d-flex justify-content-between align-items-center pb-4">
                 <h5 className="mb-0">2 Courses</h5>
-                <button type="button" className="btn btn-sm btn-danger-ghost mb-0">
-                  <i className="isax isax-close-circle me-1" />
-                  Clear cart
-                </button>
+                <div className="d-flex gap-2">
+                  <Link href="/cart-empty" className="btn btn-sm btn-outline-secondary mb-0">
+                    Empty state
+                  </Link>
+                  <button type="button" className="btn btn-sm btn-danger-ghost mb-0">
+                    <i className="isax isax-close-circle me-1" />
+                    Clear cart
+                  </button>
+                </div>
               </div>
               <div className="row row-gap-3 pb-3 mb-3 border-bottom">
                 {CART_LINES.map((line) => (
@@ -87,6 +92,37 @@ export function CartPageBody() {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="alert alert-warning d-flex align-items-center justify-content-between gap-3 mb-4">
+                <div>
+                  <h6 className="mb-1">Remove confirmation state</h6>
+                  <p className="mb-0 fs-14">Static UI for confirming a cart item removal before checkout.</p>
+                </div>
+                <div className="d-flex gap-2">
+                  <button type="button" className="btn btn-sm btn-light">
+                    Cancel
+                  </button>
+                  <button type="button" className="btn btn-sm btn-danger">
+                    Remove
+                  </button>
+                </div>
+              </div>
+              <div className="bg-light border rounded-2 p-3 mb-4">
+                <div className="row align-items-center row-gap-3">
+                  <div className="col-md-7">
+                    <label className="form-label fw-medium">Coupon code</label>
+                    <div className="input-group">
+                      <input className="form-control" defaultValue="LEARN25" aria-label="Coupon code" />
+                      <button type="button" className="btn btn-secondary">
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+                  <div className="col-md-5">
+                    <span className="badge bg-success-subtle text-success me-2">LEARN25 applied</span>
+                    <span className="badge bg-danger-subtle text-danger">INVALID expired</span>
+                  </div>
+                </div>
               </div>
               <div className="bg-light border rounded-2 p-3 mb-4">
                 <div className="row align-items-center justify-content-between row-gap-3">
