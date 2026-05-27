@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { TermsAndConditionsBody } from "@/components/dream-lms/pages/staticMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Dreams LMS",
+  title: "Terms and Conditions | MetaWaves",
 };
 
 export default function Page() {

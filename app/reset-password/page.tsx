@@ -3,7 +3,7 @@ import { AuthPageShell } from "@/components/dream-lms/pages/AuthPageShell";
 import { ResetPasswordFormBody } from "@/components/dream-lms/pages/authBodies";
 
 export const metadata: Metadata = {
-  title: "Reset Password | Dreams LMS",
+  title: "Reset Password | MetaWaves",
 };
 
 export default function Page() {

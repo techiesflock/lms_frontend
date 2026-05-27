@@ -15,6 +15,8 @@ export type MarketingSubPageProps = {
    * Use when `children` already include `<section className="course-content">` or equivalent template markup.
    */
   embedMain?: boolean;
+  /** Hide the large breadcrumb banner (e.g. Udemy-style course page). */
+  hideBreadcrumb?: boolean;
 };
 
 export function MarketingSubPage({
@@ -23,11 +25,12 @@ export function MarketingSubPage({
   breadcrumb,
   children,
   embedMain = false,
+  hideBreadcrumb = false,
 }: MarketingSubPageProps) {
   const crumbs = breadcrumb ?? [{ label: "Home", href: "/" }, { label: title }];
 
   const breadcrumbBlock = (
-    <div className="breadcrumb-bar text-center">
+    <div className="breadcrumb-bar mw-breadcrumb-bar text-center">
       <div className="container">
         <div className="row">
           <div className="col-md-12 col-12">
@@ -60,16 +63,16 @@ export function MarketingSubPage({
 
   if (embedMain) {
     return (
-      <MarketingChrome>
-        {breadcrumbBlock}
+      <MarketingChrome innerPage>
+        {!hideBreadcrumb ? breadcrumbBlock : null}
         {children}
       </MarketingChrome>
     );
   }
 
   return (
-    <MarketingChrome>
-      {breadcrumbBlock}
+    <MarketingChrome innerPage>
+      {!hideBreadcrumb ? breadcrumbBlock : null}
       <section className="course-content py-5">
         <div className="container">
           {description ? <p className="text-muted mb-4">{description}</p> : null}

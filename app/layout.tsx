@@ -4,12 +4,12 @@ import { TemplateScripts } from "@/components/TemplateScripts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Dreams LMS", template: "%s | Dreams LMS" },
+  title: { default: "MetaWaves", template: "%s | MetaWaves" },
   description:
-    "Learning management system template — migrated from Dream LMS HTML.",
+    "MetaWaves — find the best courses from expert mentors around the world.",
   icons: {
-    icon: "/assets/img/favicon.png",
-    apple: "/assets/img/apple-icon.png",
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
   },
 };
 
@@ -55,6 +55,7 @@ export default function RootLayout({
           href="/assets/plugins/fancybox/jquery.fancybox.min.css"
         />
         <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="/metawaves-theme.css" />
       </head>
       <body suppressHydrationWarning>
         <Script src="/assets/js/theme-script.js" strategy="beforeInteractive" />

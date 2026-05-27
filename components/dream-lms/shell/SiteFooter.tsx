@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
+import { BrandLogo } from "@/components/dream-lms/shared/BrandLogo";
+import { BRAND_TAGLINE } from "@/lib/brand";
 
 export function SiteFooter() {
   return (
@@ -10,12 +12,9 @@ export function SiteFooter() {
             <div className="col-lg-4">
               <div className="footer-about">
                 <div className="footer-logo">
-                  <img src={assetPath("img/logo-white.svg")} alt="Dreams LMS" />
+                  <BrandLogo href="/" />
                 </div>
-                <p>
-                  Platform designed to help organizations, educators, and learners
-                  manage, deliver, and track learning and training activities.
-                </p>
+                <p>{BRAND_TAGLINE}</p>
                 <div className="d-flex align-items-center">
                   <a href="#" className="me-2" aria-label="App Store">
                     <img src={assetPath("img/icon/appstore.svg")} alt="" />
@@ -129,7 +128,7 @@ export function SiteFooter() {
             <div className="col-lg-5">
               <div className="text-center text-lg-start">
                 <p>
-                  Copyright 2026 © <span className="text-secondary">DreamsLMS</span>.
+                  Copyright 2026 © <span className="text-secondary">MetaWaves</span>.
                   All right reserved.
                 </p>
               </div>

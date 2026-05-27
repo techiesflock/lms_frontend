@@ -639,7 +639,7 @@ export function StudentReferralBody() {
         <div className="card-body">
           <h6 className="mb-2">Your referral link</h6>
           <div className="input-group">
-            <input type="text" className="form-control" readOnly value="https://dreamslms.com/ref/STU-88291" />
+            <input type="text" className="form-control" readOnly value="https://metawaves.com/ref/STU-88291" />
             <button type="button" className="btn btn-primary">
               Copy
             </button>

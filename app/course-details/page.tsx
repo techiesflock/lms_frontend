@@ -9,15 +9,7 @@ export const metadata: Metadata = {
 
 export default function CourseDetailsPage() {
   return (
-    <MarketingSubPage
-      title="Course Details"
-      embedMain
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Courses", href: "/course-grid" },
-        { label: "Course Details" },
-      ]}
-    >
+    <MarketingSubPage title="Course Details" embedMain hideBreadcrumb>
       <CourseDetailsTwoPageBody />
     </MarketingSubPage>
   );

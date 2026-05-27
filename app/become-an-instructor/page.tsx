@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { BecomeInstructorBody } from "@/components/dream-lms/pages/staticMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Become an Instructor | Dreams LMS",
+  title: "Become an Instructor | MetaWaves",
 };
 
 export default function Page() {
@@ -11,6 +11,7 @@ export default function Page() {
     <MarketingSubPage
       title="Become an Instructor"
       embedMain
+      hideBreadcrumb
       description=""
       breadcrumb={[
         { label: "Home", href: "/" },

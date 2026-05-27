@@ -10,7 +10,7 @@ export function FeaturedCoursesSection() {
           <span className="fw-medium text-secondary text-decoration-underline mb-2 d-inline-block">
             Featured Courses
           </span>
-          <h2>What&apos;s New in DreamsLMS</h2>
+          <h2>What&apos;s New in MetaWaves</h2>
           <p>Discover our featured courses, specially curated to help you gain in-demand skills</p>
         </div>
         <div className="feature-course-slider-2">

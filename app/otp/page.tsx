@@ -3,7 +3,7 @@ import { AuthPageShell } from "@/components/dream-lms/pages/AuthPageShell";
 import { OtpFormBody } from "@/components/dream-lms/pages/authBodies";
 
 export const metadata: Metadata = {
-  title: "OTP | Dreams LMS",
+  title: "OTP | MetaWaves",
 };
 
 export default function Page() {

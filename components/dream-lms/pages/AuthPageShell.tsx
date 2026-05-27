@@ -1,11 +1,19 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { assetPath } from "@/lib/assetPath";
+import { BrandLogo } from "@/components/dream-lms/shared/BrandLogo";
+import { BRAND_NAME } from "@/lib/brand";
 
 /** Split auth layout from `login.html` / `register.html` (banner + form column). */
-export function AuthPageShell({ children }: { children: ReactNode }) {
+export function AuthPageShell({
+  children,
+  modern = false,
+}: {
+  children: ReactNode;
+  modern?: boolean;
+}) {
   return (
-    <div className="main-wrapper">
+    <div className={`main-wrapper${modern ? " mw-auth-modern" : ""}`}>
       <div className="login-content">
         <div className="row">
           <div className="col-lg-6 login-bg d-none d-lg-flex">
@@ -19,7 +27,7 @@ export function AuthPageShell({ children }: { children: ReactNode }) {
                     <div className="mentor-course text-center">
                       <h3 className="mb-2">
                         Welcome to <br />
-                        Dreams<span className="text-secondary">LMS</span> Courses.
+                        {BRAND_NAME} Courses.
                       </h3>
                       <p>
                         Platform designed to help organizations, educators, and learners manage, deliver, and track
@@ -47,9 +55,7 @@ export function AuthPageShell({ children }: { children: ReactNode }) {
 export function AuthLoginHeader() {
   return (
     <div className="d-flex align-items-center justify-content-between login-header">
-      <Link href="/">
-        <img src={assetPath("img/logo.svg")} className="img-fluid" alt="Dreams LMS" />
-      </Link>
+      <BrandLogo href="/" />
       <Link href="/" className="link-1">
         Back to Home
       </Link>

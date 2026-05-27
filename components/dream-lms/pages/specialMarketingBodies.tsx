@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
+import { BrandLogo } from "@/components/dream-lms/shared/BrandLogo";
 
 export function LockScreenBody() {
   return (
@@ -8,7 +9,7 @@ export function LockScreenBody() {
       <div className="lock-screen">
         <div className="lock-wrapper">
           <div className="d-flex align-items-center justify-content-center lock-header">
-            <img src={assetPath("img/logo.svg")} className="img-fluid" alt="Dreams LMS" />
+            <BrandLogo href="/" />
           </div>
           <div className="topic">
             <h1 className="fs-32 fw-bold mb-3 text-center">Welcome Back</h1>
@@ -58,9 +59,7 @@ function ErrorDecoratedBox({ illustration, title, subtitle }: ErrorBoxProps) {
             <img key={n} src={assetPath(`img/error/img-${n}.svg`)} alt="" className={`img-fluid bg-${n}`} />
           ))}
           <div className="error-logo">
-            <Link href="/">
-              <img src={assetPath("img/logo.svg")} className="img-fluid" alt="Dreams LMS" />
-            </Link>
+            <BrandLogo href="/" className="img-fluid" />
           </div>
           <div className="error-box-img">
             <img src={assetPath(illustration)} alt="" className="img-fluid" />
@@ -113,9 +112,7 @@ export function ComingSoonBody() {
             <img key={n} src={assetPath(`img/error/img-${n}.svg`)} alt="" className={`img-fluid bg-${n}`} />
           ))}
           <div className="error-logo">
-            <Link href="/">
-              <img src={assetPath("img/logo.svg")} className="img-fluid" alt="Dreams LMS" />
-            </Link>
+            <BrandLogo href="/" className="img-fluid" />
           </div>
           <div className="coming-soon-topic">
             <h3 className="h2 mb-3">
@@ -169,9 +166,7 @@ export function UnderConstructionBody() {
             <img key={n} src={assetPath(`img/error/img-${n}.svg`)} alt="" className={`img-fluid bg-${n}`} />
           ))}
           <div className="error-logo">
-            <Link href="/">
-              <img src={assetPath("img/logo.svg")} className="img-fluid" alt="Dreams LMS" />
-            </Link>
+            <BrandLogo href="/" className="img-fluid" />
           </div>
           <div className="error-box-img">
             <img src={assetPath("img/error/error-03.svg")} alt="" className="img-fluid" />

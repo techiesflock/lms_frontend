@@ -3,7 +3,7 @@ import { AuthPageShell } from "@/components/dream-lms/pages/AuthPageShell";
 import { RegisterFormBody } from "@/components/dream-lms/pages/authBodies";
 
 export const metadata: Metadata = {
-  title: "Register | Dreams LMS",
+  title: "Register | MetaWaves",
 };
 
 export default function Page() {

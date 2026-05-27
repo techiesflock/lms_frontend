@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { RtlDemoBody } from "@/components/dream-lms/pages/specialMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "RTL | Dreams LMS",
+  title: "RTL | MetaWaves",
 };
 
 export default function Page() {

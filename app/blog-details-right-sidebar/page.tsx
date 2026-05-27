@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { BlogDetailsRightSidebarBody } from "@/components/dream-lms/blog/blogMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Blog Details Right Sidebar | Dreams LMS",
+  title: "Blog Details Right Sidebar | MetaWaves",
 };
 
 export default function Page() {

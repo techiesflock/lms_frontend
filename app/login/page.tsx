@@ -3,12 +3,12 @@ import { AuthPageShell } from "@/components/dream-lms/pages/AuthPageShell";
 import { LoginFormBody } from "@/components/dream-lms/pages/authBodies";
 
 export const metadata: Metadata = {
-  title: "Login | Dreams LMS",
+  title: "Login | MetaWaves",
 };
 
 export default function Page() {
   return (
-    <AuthPageShell>
+    <AuthPageShell modern>
       <LoginFormBody />
     </AuthPageShell>
   );

@@ -5,9 +5,9 @@ import { HomeCarouselInit } from "@/components/dream-lms/home/HomeCarouselInit";
 import { HomeMain } from "@/components/dream-lms/home/HomeMain";
 
 export const metadata: Metadata = {
-  title: "Dreams LMS | Advanced Learning Management System Template",
+  title: "MetaWaves | Advanced Learning Management System",
   description:
-    "Find the best courses from expert mentors — Dreams LMS marketing experience built with React components.",
+    "Find the best courses from expert mentors — MetaWaves learning platform.",
 };
 
 export default function HomePage() {

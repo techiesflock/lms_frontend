@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { BlogGridOneBody } from "@/components/dream-lms/blog/blogMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Blog 1 Grid | Dreams LMS",
+  title: "Blog 1 Grid | MetaWaves",
 };
 
 export default function Page() {

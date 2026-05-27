@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
+import { BrandLogo } from "@/components/dream-lms/shared/BrandLogo";
 import {
   blogNav,
   coursesNav,
@@ -8,9 +9,13 @@ import {
 } from "@/config/marketingNav";
 import { NavSimpleDropdown } from "./NavMenus";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  innerPage?: boolean;
+};
+
+export function SiteHeader({ innerPage = false }: SiteHeaderProps) {
   return (
-    <header className="header-one">
+    <header className={`header-one${innerPage ? " mw-header-inner" : ""}`}>
       <div className="container">
         <div className="header-nav">
           <div className="navbar-header">
@@ -20,32 +25,12 @@ export function SiteHeader() {
               </span>
             </a>
             <div className="navbar-logo">
-              <Link className="logo-white header-logo" href="/">
-                <img
-                  src={assetPath("img/logo-white.svg")}
-                  className="logo"
-                  alt="Dreams LMS"
-                />
-              </Link>
-              <Link className="logo-dark header-logo" href="/">
-                <img
-                  src={assetPath("img/logo-white.svg")}
-                  className="logo"
-                  alt=""
-                  aria-hidden
-                />
-              </Link>
+              <BrandLogo className="logo header-logo" />
             </div>
           </div>
           <div className="main-menu-wrapper">
             <div className="menu-header">
-              <Link href="/" className="menu-logo">
-                <img
-                  src={assetPath("img/logo.svg")}
-                  className="img-fluid"
-                  alt="Dreams LMS"
-                />
-              </Link>
+              <BrandLogo className="img-fluid" wrapperClassName="menu-logo" />
               <button
                 type="button"
                 id="menu_close"

@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { InstructorListPageBody } from "@/components/dream-lms/pages/instructorMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Instructor List | Dreams LMS",
+  title: "Instructor List | MetaWaves",
 };
 
 export default function Page() {

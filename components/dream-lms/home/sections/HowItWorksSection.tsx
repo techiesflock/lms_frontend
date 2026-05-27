@@ -46,7 +46,7 @@ export function HowItWorksSection() {
                 </span>
                 <h2 className="mb-1">Start your Learning Journey Today!</h2>
                 <p>
-                  Unlock Your Potential and Achieve Your Dreams with Our Comprehensive Learning
+                  Unlock your potential and achieve your goals with our comprehensive learning
                   Resources!
                 </p>
               </div>

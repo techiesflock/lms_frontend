@@ -20,7 +20,7 @@ export default function InvoicePage() {
                   <p className="mb-0 text-muted">Issued Oct 20, 2025 · Static receipt UI</p>
                 </div>
                 <div className="text-md-end">
-                  <h5 className="mb-1">Dream LMS</h5>
+                  <h5 className="mb-1">MetaWaves</h5>
                   <p className="mb-0 text-muted">support@dreamlms.example</p>
                 </div>
               </div>

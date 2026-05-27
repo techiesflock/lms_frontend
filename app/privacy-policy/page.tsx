@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { PrivacyPolicyBody } from "@/components/dream-lms/pages/staticMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Dreams LMS",
+  title: "Privacy Policy | MetaWaves",
 };
 
 export default function Page() {

@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { BlogCarousalBody } from "@/components/dream-lms/blog/blogMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Blog Carousal | Dreams LMS",
+  title: "Blog Carousal | MetaWaves",
 };
 
 export default function Page() {

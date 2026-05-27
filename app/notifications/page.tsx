@@ -3,7 +3,7 @@ import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubP
 import { NotificationsBody } from "@/components/dream-lms/pages/staticMarketingBodies";
 
 export const metadata: Metadata = {
-  title: "Notifications | Dreams LMS",
+  title: "Notifications | MetaWaves",
 };
 
 export default function Page() {
