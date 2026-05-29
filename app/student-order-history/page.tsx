@@ -1,24 +1,27 @@
 import type { Metadata } from "next";
 import { MarketingChrome } from "@/components/dream-lms/shell/MarketingChrome";
-import { DashboardBreadcrumb } from "@/components/dream-lms/dashboard/DashboardBreadcrumb";
-import { StudentDashboardLayout } from "@/components/dream-lms/dashboard/student/StudentDashboardLayout";
-import { StudentOrderHistoryBody } from "@/components/dream-lms/dashboard/student/studentBodies";
+import { StudentDashboardModernLayout } from "@/components/dream-lms/dashboard/student/StudentDashboardModernLayout";
+import { StudentOrderHistoryBodyModern } from "@/components/dream-lms/dashboard/student/studentBodiesModern";
+import { STUDENT_PAGES } from "@/components/dream-lms/dashboard/student/studentPagesConfig";
+
+const PAGE = STUDENT_PAGES.orders;
 
 export const metadata: Metadata = {
-  title: "Order History",
-  description: "Student dashboard — Order History.",
+  title: `${PAGE.title} | MetaWaves`,
+  description: PAGE.description,
 };
 
 export default function Page() {
   return (
-    <MarketingChrome>
-      <DashboardBreadcrumb
-        title="Order History"
-        crumbs={[{ label: "Home", href: "/" }, { label: "Order History" }]}
-      />
-      <StudentDashboardLayout activeHref="/student-order-history">
-        <StudentOrderHistoryBody />
-      </StudentDashboardLayout>
+    <MarketingChrome innerPage>
+      <StudentDashboardModernLayout
+        activeHref={PAGE.href}
+        pageTitle={PAGE.title}
+        pageMeta={PAGE.meta}
+        pageDescription={PAGE.description}
+      >
+        <StudentOrderHistoryBodyModern />
+      </StudentDashboardModernLayout>
     </MarketingChrome>
   );
 }

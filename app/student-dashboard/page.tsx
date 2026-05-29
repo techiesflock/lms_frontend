@@ -14,6 +14,7 @@ export default function Page() {
       <StudentDashboardModernLayout
         activeHref="/student-dashboard"
         pageTitle="Dashboard"
+        pageMeta="Your learning progress at a glance"
         pageDescription="Welcome back — continue your learning journey."
       >
         <StudentDashboardHomeModern />

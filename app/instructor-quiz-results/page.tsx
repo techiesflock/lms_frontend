@@ -1,24 +1,27 @@
 import type { Metadata } from "next";
 import { MarketingChrome } from "@/components/dream-lms/shell/MarketingChrome";
-import { DashboardBreadcrumb } from "@/components/dream-lms/dashboard/DashboardBreadcrumb";
-import { InstructorDashboardLayout } from "@/components/dream-lms/dashboard/instructor/InstructorDashboardLayout";
-import { InstructorQuizResultsBody } from "@/components/dream-lms/dashboard/instructor/instructorBodies";
+import { InstructorDashboardModernLayout } from "@/components/dream-lms/dashboard/instructor/InstructorDashboardModernLayout";
+import { InstructorQuizResultsBodyModern } from "@/components/dream-lms/dashboard/instructor/instructorBodiesModern";
+import { INSTRUCTOR_PAGES } from "@/components/dream-lms/dashboard/instructor/instructorPagesConfig";
+
+const PAGE = INSTRUCTOR_PAGES.quizResults;
 
 export const metadata: Metadata = {
-  title: "Quiz Results",
-  description: "Instructor dashboard — Quiz Results.",
+  title: `${PAGE.title} | MetaWaves`,
+  description: PAGE.description,
 };
 
 export default function Page() {
   return (
-    <MarketingChrome>
-      <DashboardBreadcrumb
-        title="Quiz Results"
-        crumbs={[{ label: "Home", href: "/" }, { label: "Quiz Results" }]}
-      />
-      <InstructorDashboardLayout activeHref="/instructor-quiz-results">
-        <InstructorQuizResultsBody />
-      </InstructorDashboardLayout>
+    <MarketingChrome innerPage>
+      <InstructorDashboardModernLayout
+        activeHref={PAGE.href}
+        pageTitle={PAGE.title}
+        pageMeta={PAGE.meta}
+        pageDescription={PAGE.description}
+      >
+        <InstructorQuizResultsBodyModern />
+      </InstructorDashboardModernLayout>
     </MarketingChrome>
   );
 }

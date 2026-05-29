@@ -11,16 +11,16 @@ export const coursesNav: NavNode[] = [
     label: "Courses",
     children: [
       { kind: "link", label: "Course Grid", href: "/course-grid" },
-      { kind: "link", label: "Course List", href: "/course-list" },
+      // { kind: "link", label: "Course List", href: "/course-list" },
     ],
   },
   {
     kind: "group",
     label: "Course Category",
     children: [
-      { kind: "link", label: "Course Category", href: "/course-category" },
+      // { kind: "link", label: "Course Category", href: "/course-category" },
       { kind: "link", label: "Course Category 2", href: "/course-category-2" },
-      { kind: "link", label: "Course Category 3", href: "/course-category-3" },
+      // { kind: "link", label: "Course Category 3", href: "/course-category-3" },
     ],
   },
   { kind: "link", label: "Course Details", href: "/course-details" },

@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { TermsAndConditionsBody } from "@/components/dream-lms/pages/staticMarketingBodies";
+import { TermsAndConditionsBodyModern } from "@/components/dream-lms/pages/marketingPagesModern";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | MetaWaves",
+  title: "Terms & Conditions | MetaWaves",
 };
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Terms and Conditions"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Terms and Conditions" },
-      ]}
-    >
-      <TermsAndConditionsBody />
+    <MarketingSubPage title="Terms & Conditions" hideBreadcrumb embedMain>
+      <TermsAndConditionsBodyModern />
     </MarketingSubPage>
   );
 }

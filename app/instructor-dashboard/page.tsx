@@ -14,6 +14,7 @@ export default function Page() {
       <InstructorDashboardModernLayout
         activeHref="/instructor-dashboard"
         pageTitle="Dashboard"
+        pageMeta="Overview of your teaching activity"
         pageDescription="Welcome back — here is what is happening with your courses today."
       >
         <InstructorDashboardHomeModern />

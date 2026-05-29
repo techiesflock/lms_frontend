@@ -8,16 +8,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Contact Us"
-      embedMain
-      hideBreadcrumb
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Contact Us" },
-      ]}
-    >
+    <MarketingSubPage title="Contact Us" hideBreadcrumb embedMain>
       <ContactUsBody />
     </MarketingSubPage>
   );

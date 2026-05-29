@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { InstructorDetailsPageBody } from "@/components/dream-lms/pages/instructorMarketingBodies";
+import { InstructorDetailsModern } from "@/components/dream-lms/instructors/InstructorDetailsModern";
 
 export const metadata: Metadata = {
   title: "Instructor Details | MetaWaves",
+  description: "View instructor profile, courses, and contact information.",
 };
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Instructor Details"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Instructor Details" },
-      ]}
-    >
-      <InstructorDetailsPageBody />
+    <MarketingSubPage title="Instructor Details" hideBreadcrumb embedMain>
+      <InstructorDetailsModern />
     </MarketingSubPage>
   );
 }

@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { BlogGridOneBody } from "@/components/dream-lms/blog/blogMarketingBodies";
+import { BlogGridOneModern } from "@/components/dream-lms/blog/blogMarketingModern";
 
 export const metadata: Metadata = {
-  title: "Blog 1 Grid | MetaWaves",
+  title: "Blog | MetaWaves",
+  description: "Insights on learning, technology, and career growth.",
 };
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Blog 1 Grid"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Blog 1 Grid" },
-      ]}
-    >
-      <BlogGridOneBody />
+    <MarketingSubPage title="Blog" hideBreadcrumb embedMain>
+      <BlogGridOneModern />
     </MarketingSubPage>
   );
 }

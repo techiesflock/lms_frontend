@@ -6,6 +6,7 @@ import { InstructorDashboardModernSidebar } from "./InstructorDashboardModernSid
 type InstructorDashboardModernLayoutProps = {
   activeHref: string;
   pageTitle?: string;
+  pageMeta?: string;
   pageDescription?: string;
   children: ReactNode;
 };
@@ -13,11 +14,12 @@ type InstructorDashboardModernLayoutProps = {
 export function InstructorDashboardModernLayout({
   activeHref,
   pageTitle = "Dashboard",
+  pageMeta,
   pageDescription,
   children,
 }: InstructorDashboardModernLayoutProps) {
   return (
-    <div className="mw-idash">
+    <div className="mw-idash mw-idash--instructor">
       <div className="mw-idash__shell">
         <InstructorDashboardModernSidebar activeHref={activeHref} />
 
@@ -66,7 +68,9 @@ export function InstructorDashboardModernLayout({
 
           <div className="mw-idash__page-head">
             <h2 className="mw-idash__page-title">{pageTitle}</h2>
-            <p className="mw-idash__page-meta">Overview of your teaching activity</p>
+            <p className="mw-idash__page-meta">
+              {pageMeta ?? "Overview of your teaching activity"}
+            </p>
           </div>
 
           <div className="mw-idash__content">{children}</div>

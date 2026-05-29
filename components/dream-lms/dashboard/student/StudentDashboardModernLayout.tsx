@@ -6,6 +6,9 @@ import { StudentDashboardModernSidebar } from "./StudentDashboardModernSidebar";
 type StudentDashboardModernLayoutProps = {
   activeHref: string;
   pageTitle?: string;
+  /** Shown under the page title in the main content area */
+  pageMeta?: string;
+  /** Shown in the top profile banner */
   pageDescription?: string;
   children: ReactNode;
 };
@@ -13,6 +16,7 @@ type StudentDashboardModernLayoutProps = {
 export function StudentDashboardModernLayout({
   activeHref,
   pageTitle = "Dashboard",
+  pageMeta,
   pageDescription,
   children,
 }: StudentDashboardModernLayoutProps) {
@@ -66,7 +70,9 @@ export function StudentDashboardModernLayout({
 
           <div className="mw-idash__page-head">
             <h2 className="mw-idash__page-title">{pageTitle}</h2>
-            <p className="mw-idash__page-meta">Your learning progress at a glance</p>
+            <p className="mw-idash__page-meta">
+              {pageMeta ?? "Your learning progress at a glance"}
+            </p>
           </div>
 
           <div className="mw-idash__content">{children}</div>

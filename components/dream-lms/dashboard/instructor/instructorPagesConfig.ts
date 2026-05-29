@@ -1,0 +1,92 @@
+export const INSTRUCTOR_PAGES = {
+  profile: {
+    href: "/instructor-profile",
+    title: "My Profile",
+    meta: "Your public instructor profile and teaching credentials.",
+    description: "Instructor profile.",
+  },
+  course: {
+    href: "/instructor-course",
+    title: "Courses",
+    meta: "Manage, publish, and track all your courses.",
+    description: "Your courses.",
+  },
+  announcements: {
+    href: "/instructor-announcements",
+    title: "Announcements",
+    meta: "Share updates with students across your courses.",
+    description: "Course announcements.",
+  },
+  assignment: {
+    href: "/instructor-assignment",
+    title: "Assignments",
+    meta: "Create assignments and review student submissions.",
+    description: "Course assignments.",
+  },
+  students: {
+    href: "/students",
+    title: "Students",
+    meta: "Browse learners enrolled in your courses.",
+    description: "Student directory.",
+  },
+  studentList: {
+    href: "/student-list",
+    title: "Student List",
+    meta: "Table view of all enrolled students.",
+    description: "Student list.",
+  },
+  studentDetails: {
+    href: "/student-details",
+    title: "Student Details",
+    meta: "Profile, progress, and enrolled courses.",
+    description: "Student profile.",
+  },
+  quiz: {
+    href: "/instructor-quiz",
+    title: "Quiz",
+    meta: "Manage quizzes attached to your courses.",
+    description: "Course quizzes.",
+  },
+  quizResults: {
+    href: "/instructor-quiz-results",
+    title: "Quiz Results",
+    meta: "Review student scores and attempt history.",
+    description: "Quiz results.",
+  },
+  certificates: {
+    href: "/instructor-certificate",
+    title: "Certificates",
+    meta: "Certificate templates for your courses.",
+    description: "Course certificates.",
+  },
+  earnings: {
+    href: "/instructor-earnings",
+    title: "Earnings",
+    meta: "Revenue from course sales and enrollments.",
+    description: "Your earnings.",
+  },
+  payout: {
+    href: "/instructor-payout",
+    title: "Payout",
+    meta: "Withdraw earnings to your linked account.",
+    description: "Request payouts.",
+  },
+  statements: {
+    href: "/instructor-statements",
+    title: "Statements",
+    meta: "Monthly statements and downloadable reports.",
+    description: "Financial statements.",
+  },
+  tickets: {
+    href: "/instructor-tickets",
+    title: "Support Tickets",
+    meta: "Track requests with MetaWaves support.",
+    description: "Support tickets.",
+  },
+  settings: {
+    href: "/instructor-settings",
+    title: "Settings",
+    meta: "Update your instructor profile and preferences.",
+    description: "Account settings.",
+  },
+} as const;

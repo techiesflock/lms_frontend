@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { NotificationsBody } from "@/components/dream-lms/pages/staticMarketingBodies";
+import { NotificationsBodyModern } from "@/components/dream-lms/pages/marketingPagesModern";
 
 export const metadata: Metadata = {
   title: "Notifications | MetaWaves",
+  description: "Your enrollments, assignments, and messages in one place.",
 };
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Notifications"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Notifications" },
-      ]}
-    >
-      <NotificationsBody />
+    <MarketingSubPage title="Notifications" hideBreadcrumb embedMain>
+      <NotificationsBodyModern />
     </MarketingSubPage>
   );
 }

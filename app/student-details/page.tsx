@@ -1,35 +1,27 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { MarketingChrome } from "@/components/dream-lms/shell/MarketingChrome";
-import { DashboardBreadcrumb } from "@/components/dream-lms/dashboard/DashboardBreadcrumb";
-import { InstructorDashboardLayout } from "@/components/dream-lms/dashboard/instructor/InstructorDashboardLayout";
-import { InstructorStudentDetailBody } from "@/components/dream-lms/dashboard/instructor/instructorBodies";
+import { InstructorDashboardModernLayout } from "@/components/dream-lms/dashboard/instructor/InstructorDashboardModernLayout";
+import { InstructorStudentDetailBodyModern } from "@/components/dream-lms/dashboard/instructor/instructorBodiesModern";
+import { INSTRUCTOR_PAGES } from "@/components/dream-lms/dashboard/instructor/instructorPagesConfig";
+
+const PAGE = INSTRUCTOR_PAGES.studentDetails;
 
 export const metadata: Metadata = {
-  title: "Students Details",
-  description: "Instructor view of a student profile.",
+  title: `${PAGE.title} | MetaWaves`,
+  description: PAGE.description,
 };
 
 export default function Page() {
   return (
-    <MarketingChrome>
-      <DashboardBreadcrumb
-        title="Students Details"
-        crumbs={[{ label: "Home", href: "/" }, { label: "Students Details" }]}
-      />
-      <InstructorDashboardLayout
-        activeHref="/student-details"
-        showSidebar={false}
-        contentClassName="instructor-detail-content"
+    <MarketingChrome innerPage>
+      <InstructorDashboardModernLayout
+        activeHref={PAGE.href}
+        pageTitle={PAGE.title}
+        pageMeta={PAGE.meta}
+        pageDescription={PAGE.description}
       >
-        <>
-          <Link href="/student-list" className="d-flex align-items-center mb-3">
-            <i className="isax isax-arrow-left me-1 fw-bold" />
-            Back to List
-          </Link>
-          <InstructorStudentDetailBody />
-        </>
-      </InstructorDashboardLayout>
+        <InstructorStudentDetailBodyModern />
+      </InstructorDashboardModernLayout>
     </MarketingChrome>
   );
 }

@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { BlogCarousalBody } from "@/components/dream-lms/blog/blogMarketingBodies";
+import { BlogCarousalModern } from "@/components/dream-lms/blog/blogMarketingModern";
 
 export const metadata: Metadata = {
-  title: "Blog Carousal | MetaWaves",
+  title: "Blog Carousel | MetaWaves",
 };
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Blog Carousal"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Blog Carousal" },
-      ]}
-    >
-      <BlogCarousalBody />
+    <MarketingSubPage title="Blog" hideBreadcrumb embedMain>
+      <BlogCarousalModern />
     </MarketingSubPage>
   );
 }

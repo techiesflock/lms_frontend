@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { BlogRightSidebarBody } from "@/components/dream-lms/blog/blogMarketingBodies";
+import { BlogRightSidebarModern } from "@/components/dream-lms/blog/blogMarketingModern";
 
 export const metadata: Metadata = {
   title: "Blog Right Sidebar | MetaWaves",
@@ -8,16 +8,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Blog Right Sidebar"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Blog Right Sidebar" },
-      ]}
-    >
-      <BlogRightSidebarBody />
+    <MarketingSubPage title="Blog" hideBreadcrumb embedMain>
+      <BlogRightSidebarModern />
     </MarketingSubPage>
   );
 }

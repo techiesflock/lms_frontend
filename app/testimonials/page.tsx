@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
 import { MarketingSubPage } from "@/components/dream-lms/marketing/MarketingSubPage";
-import { TestimonialsBody } from "@/components/dream-lms/pages/staticMarketingBodies";
+import { TestimonialsBodyModern } from "@/components/dream-lms/pages/marketingPagesModern";
 
 export const metadata: Metadata = {
   title: "Testimonials | MetaWaves",
+  description: "Stories from learners and professionals who grew with MetaWaves.",
 };
 
 export default function Page() {
   return (
-    <MarketingSubPage
-      title="Testimonials"
-      embedMain
-      description=""
-      breadcrumb={[
-        { label: "Home", href: "/" },
-        { label: "Testimonials" },
-      ]}
-    >
-      <TestimonialsBody />
+    <MarketingSubPage title="Testimonials" hideBreadcrumb embedMain>
+      <TestimonialsBodyModern />
     </MarketingSubPage>
   );
 }
