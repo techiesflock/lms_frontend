@@ -28,12 +28,13 @@ Version      : 1.0
 	});
 		
 
-	// Sticky Header
+	// Sticky Header (site chrome only — not in-page heroes like .mw-catalog-hero)
 	$(window).scroll(function () {
+		var $siteHeader = $("header.header-one");
 		if ($(this).scrollTop() > 130) {
-		  $("header").addClass("fixed");
+		  $siteHeader.addClass("fixed");
 		} else {
-		  $("header").removeClass("fixed");
+		  $siteHeader.removeClass("fixed");
 		}
 	  });
 	

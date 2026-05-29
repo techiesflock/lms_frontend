@@ -243,26 +243,27 @@ header.header-one.mw-header-inner .container {
   }
 }
 
-.mw-inner-page:has(.ud-course-page) header.header-one.mw-header-inner {
+/* Dark header only on course details (has .ud-hero), not flow pages (watch, cart, etc.) */
+.mw-inner-page:has(.ud-course-page):not(:has(.ud-flow-page)) header.header-one.mw-header-inner {
   background: var(--ud-hero-bg);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: none;
 }
 
-.mw-inner-page:has(.ud-course-page) header.header-one.mw-header-inner .main-menu-wrapper .main-nav > li > a {
+.mw-inner-page:has(.ud-course-page):not(:has(.ud-flow-page)) header.header-one.mw-header-inner .main-menu-wrapper .main-nav > li > a {
   color: #fff !important;
 }
 
-.mw-inner-page:has(.ud-course-page) header.header-one.mw-header-inner .main-menu-wrapper .main-nav > li > a:hover,
-.mw-inner-page:has(.ud-course-page) header.header-one.mw-header-inner .main-menu-wrapper .main-nav > li.active > a {
+.mw-inner-page:has(.ud-course-page):not(:has(.ud-flow-page)) header.header-one.mw-header-inner .main-menu-wrapper .main-nav > li > a:hover,
+.mw-inner-page:has(.ud-course-page):not(:has(.ud-flow-page)) header.header-one.mw-header-inner .main-menu-wrapper .main-nav > li.active > a {
   color: #c0c4fc !important;
 }
 
-.mw-inner-page:has(.ud-course-page) header.header-one.mw-header-inner .navbar-header #mobile_btn .bar-icon span {
+.mw-inner-page:has(.ud-course-page):not(:has(.ud-flow-page)) header.header-one.mw-header-inner .navbar-header #mobile_btn .bar-icon span {
   background: #fff;
 }
 
-.mw-inner-page:has(.ud-course-page) header.header-one.mw-header-inner.fixed {
+.mw-inner-page:has(.ud-course-page):not(:has(.ud-flow-page)) header.header-one.mw-header-inner.fixed {
   background: var(--ud-hero-bg);
 }
 
@@ -2237,6 +2238,10 @@ header.header-one.mw-header-inner .container {
 }
 
 @media (max-width: 991.98px) {
+  .mw-catalog-fonts .mw-catalog-page--elevated {
+    --mw-catalog-header-height: 88px;
+  }
+
   .mw-catalog-layout {
     grid-template-columns: 1fr;
   }
@@ -2311,12 +2316,33 @@ header.header-one.mw-header-inner .container {
   --mw-catalog-text: #05072b;
   --mw-catalog-muted: #5c6370;
   --mw-catalog-border: rgba(5, 7, 43, 0.1);
-  --mw-catalog-header-height: 88px;
+  /* Matches fixed SiteHeader height on inner marketing pages */
+  --mw-catalog-header-height: 104px;
   --mw-catalog-font-display: var(--font-mw-display, "Syne", system-ui, sans-serif);
   --mw-catalog-font-body: var(--font-mw-body, "Plus Jakarta Sans", system-ui, sans-serif);
   font-family: var(--mw-catalog-font-body);
   background: var(--mw-catalog-bg);
   padding: calc(var(--mw-catalog-header-height) + 24px) 0 80px;
+}
+
+.mw-inner-page .mw-catalog-page--elevated > .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mw-catalog-page--elevated .mw-catalog-hero {
+  flex-shrink: 0;
+}
+
+/* Legacy: template script used to add .fixed to every <header>, including catalog heroes */
+header.mw-catalog-hero.fixed,
+header.mw-blog-hero.fixed {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  animation: none !important;
+  box-shadow: none !important;
 }
 
 .mw-catalog-page--elevated .mw-catalog-hero {
@@ -2413,7 +2439,7 @@ header.header-one.mw-header-inner .container {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.05;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 0.75rem;
 }
 
@@ -8462,6 +8488,12 @@ header.header-one.mw-header-inner .container {
   margin-bottom: 48px;
 }
 
+.mw-testimonials-hero h1,
+.mw-testimonials-hero .mw-testimonials-eyebrow,
+.mw-testimonials-hero .mw-testimonials-title {
+  color: #fff;
+}
+
 .mw-testimonials-eyebrow {
   display: inline-block;
   font-size: 0.8125rem;
@@ -8482,7 +8514,7 @@ header.header-one.mw-header-inner .container {
 .mw-testimonials-subtitle {
   margin: 0;
   max-width: 560px;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -8978,6 +9010,12 @@ header.header-one.mw-header-inner .container {
   margin-bottom: 40px;
 }
 
+.mw-faq-hero h1,
+.mw-faq-hero .mw-faq-eyebrow,
+.mw-faq-hero .mw-faq-title {
+  color: #fff;
+}
+
 .mw-faq-eyebrow {
   display: inline-block;
   font-size: 0.8125rem;
@@ -8997,7 +9035,7 @@ header.header-one.mw-header-inner .container {
 .mw-faq-subtitle {
   margin: 0;
   max-width: 560px;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -9182,6 +9220,12 @@ header.header-one.mw-header-inner .container {
   margin-bottom: 40px;
 }
 
+.mw-rtl-hero h1,
+.mw-rtl-hero .mw-rtl-eyebrow,
+.mw-rtl-hero .mw-rtl-title {
+  color: #fff;
+}
+
 .mw-rtl-eyebrow {
   display: inline-block;
   font-size: 0.8125rem;
@@ -9200,7 +9244,7 @@ header.header-one.mw-header-inner .container {
 .mw-rtl-subtitle {
   margin: 0 0 24px;
   max-width: 560px;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -9331,11 +9375,15 @@ header.header-one.mw-header-inner .container {
 /* —— Blog (modern) —— */
 .mw-blog-page {
   background: #f7f9fc;
-  padding: 104px 0 72px;
+}
+
+.mw-blog-page.mw-catalog-page--elevated {
+  background: #f7f9fc;
+  padding-bottom: 72px;
 }
 
 .mw-blog-page--compact {
-  padding-top: 104px;
+  padding: calc(var(--mw-catalog-header-height, 104px) + 24px) 0 72px;
 }
 
 .mw-blog-back {
@@ -9354,6 +9402,18 @@ header.header-one.mw-header-inner .container {
   padding: 40px 36px;
   margin-bottom: 40px;
   overflow: hidden;
+}
+
+.mw-blog-hero h1,
+.mw-blog-hero .mw-blog-hero__label,
+.mw-blog-hero .mw-blog-hero__title {
+  color: #fff !important;
+}
+
+/* Blog elevated hero — beat template h1 { color: var(--gray-900) } */
+.mw-blog-page.mw-catalog-page--elevated .mw-catalog-hero .mw-catalog-header__title,
+.mw-blog-page.mw-catalog-page--elevated .mw-catalog-hero h1 {
+  color: #fff !important;
 }
 
 .mw-blog-hero__mesh {
@@ -9399,7 +9459,7 @@ header.header-one.mw-header-inner .container {
 .mw-blog-hero__desc {
   margin: 0 0 20px;
   max-width: 560px;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   position: relative;
 }
@@ -9937,7 +9997,6 @@ header.header-one.mw-header-inner .container {
 }
 
 @media (max-width: 991.98px) {
-  .mw-blog-page,
   .mw-blog-page--compact {
     padding-top: 92px;
   }

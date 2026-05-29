@@ -30,7 +30,9 @@ export function BlogPageLayout({
   children,
 }: BlogPageLayoutProps) {
   return (
-    <section className={`mw-blog-page${compactHero ? " mw-blog-page--compact" : ""}`}>
+    <section
+      className={`mw-blog-page mw-catalog-page mw-catalog-page--elevated${compactHero ? " mw-blog-page--compact" : ""}`}
+    >
       <div className="container">
         {compactHero ? (
           <Link href="/blog-grid" className="mw-blog-back">
@@ -39,36 +41,41 @@ export function BlogPageLayout({
         ) : null}
 
         {!compactHero ? (
-          <header className="mw-blog-hero">
-            <div className="mw-blog-hero__mesh" aria-hidden />
-            <nav className="mw-catalog-breadcrumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span aria-hidden="true">/</span>
-              <span>Blog</span>
-            </nav>
-            <span className="mw-blog-hero__label">MetaWaves blog</span>
-            <h1 className="mw-blog-hero__title">
-              {title.split(" ").length > 1 ? (
-                <>
-                  {title.split(" ")[0]}{" "}
-                  <span className="mw-blog-hero__accent">{title.split(" ").slice(1).join(" ")}</span>
-                </>
-              ) : (
-                <span className="mw-blog-hero__accent">{title}</span>
-              )}
-            </h1>
-            <p className="mw-blog-hero__desc">{description}</p>
+          <div className="mw-catalog-hero" role="banner">
+            <div className="mw-catalog-hero__mesh" aria-hidden />
+            <div className="mw-catalog-hero__orb mw-catalog-hero__orb--1" aria-hidden />
+            <div className="mw-catalog-hero__orb mw-catalog-hero__orb--2" aria-hidden />
 
-            {showLayoutLinks ? (
-              <div className="mw-blog-layout-links" role="list" aria-label="Blog layout demos">
-                {LAYOUT_LINKS.map((link) => (
-                  <Link key={link.href} href={link.href} className="mw-blog-layout-link" role="listitem">
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-          </header>
+            <div className="mw-catalog-hero__content">
+              <nav className="mw-catalog-breadcrumb" aria-label="Breadcrumb">
+                <Link href="/">Home</Link>
+                <span aria-hidden="true">/</span>
+                <span>Blog</span>
+              </nav>
+              <span className="mw-catalog-header__label">MetaWaves blog</span>
+              <h1 className="mw-catalog-header__title">
+                {title.split(" ").length > 1 ? (
+                  <>
+                    {title.split(" ")[0]}{" "}
+                    <span className="mw-catalog-header__accent">{title.split(" ").slice(1).join(" ")}</span>
+                  </>
+                ) : (
+                  <span className="mw-catalog-header__accent">{title}</span>
+                )}
+              </h1>
+              <p className="mw-catalog-header__desc">{description}</p>
+
+              {showLayoutLinks ? (
+                <div className="mw-blog-layout-links" role="list" aria-label="Blog layout demos">
+                  {LAYOUT_LINKS.map((link) => (
+                    <Link key={link.href} href={link.href} className="mw-blog-layout-link" role="listitem">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </div>
         ) : null}
 
         <div

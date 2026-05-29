@@ -28,7 +28,7 @@ export function InstructorBrowsePageLayout({
   return (
     <section className="mw-catalog-page mw-catalog-page--elevated">
       <div className="container">
-        <header className="mw-catalog-hero">
+        <div className="mw-catalog-hero" role="banner">
           <div className="mw-catalog-hero__mesh" aria-hidden />
           <div className="mw-catalog-hero__orb mw-catalog-hero__orb--1" aria-hidden />
           <div className="mw-catalog-hero__orb mw-catalog-hero__orb--2" aria-hidden />
@@ -93,7 +93,7 @@ export function InstructorBrowsePageLayout({
               ))}
             </div>
           </div>
-        </header>
+        </div>
 
         <div className="mw-catalog-layout">
           <aside className="mw-catalog-layout__sidebar">

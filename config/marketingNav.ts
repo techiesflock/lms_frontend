@@ -134,30 +134,30 @@ export const blogNav: NavNode[] = [
     kind: "group",
     label: "Blog Layouts",
     children: [
-      { kind: "link", label: "Blog 1 Grid", href: "/blog-grid" },
-      { kind: "link", label: "Blog 2 Grid", href: "/blog-2-grid" },
-      { kind: "link", label: "Blog 3 Grid", href: "/blog-3-grid" },
+      // { kind: "link", label: "Blog 1 Grid", href: "/blog-grid" },
+      // { kind: "link", label: "Blog 2 Grid", href: "/blog-2-grid" },
+      // { kind: "link", label: "Blog 3 Grid", href: "/blog-3-grid" },
       { kind: "link", label: "Blog Carousal", href: "/blog-carousal" },
-      { kind: "link", label: "Blog Masonry", href: "/blog-masonry" },
-      { kind: "link", label: "Blog Left Sidebar", href: "/blog-left-sidebar" },
-      { kind: "link", label: "Blog Right Sidebar", href: "/blog-right-sidebar" },
+      // { kind: "link", label: "Blog Masonry", href: "/blog-masonry" },
+      // { kind: "link", label: "Blog Left Sidebar", href: "/blog-left-sidebar" },
+      // { kind: "link", label: "Blog Right Sidebar", href: "/blog-right-sidebar" },
     ],
   },
   {
     kind: "group",
     label: "Blog Details",
     children: [
-      { kind: "link", label: "Blog Details", href: "/blog-details" },
+      // { kind: "link", label: "Blog Details", href: "/blog-details" },
       {
         kind: "link",
         label: "Blog Details Left Sidebar",
         href: "/blog-details-left-sidebar",
       },
-      {
-        kind: "link",
-        label: "Blog Details Right Sidebar",
-        href: "/blog-details-right-sidebar",
-      },
+      // {
+      //   kind: "link",
+      //   label: "Blog Details Right Sidebar",
+      //   href: "/blog-details-right-sidebar",
+      // },
     ],
   },
 ];

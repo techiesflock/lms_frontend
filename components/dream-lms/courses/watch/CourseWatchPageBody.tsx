@@ -39,7 +39,7 @@ export function CourseWatchPageBody() {
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>("Overview");
 
   return (
-    <div className="ud-course-page ud-flow-page ud-watch-page">
+    <div className="ud-flow-page ud-watch-page">
       <div className="ud-watch-layout">
         <aside className="ud-watch-sidebar" aria-label="Course curriculum">
           <Link href="/course-resume" className="ud-watch-back">

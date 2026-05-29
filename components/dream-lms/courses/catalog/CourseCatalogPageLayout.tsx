@@ -59,7 +59,7 @@ export function CourseCatalogPageLayout({
     >
       <div className="container">
         {showCatalogHeader ? (
-          <header className="mw-catalog-hero">
+          <div className="mw-catalog-hero" role="banner">
             <div className="mw-catalog-hero__mesh" aria-hidden />
             <div className="mw-catalog-hero__orb mw-catalog-hero__orb--1" aria-hidden />
             <div className="mw-catalog-hero__orb mw-catalog-hero__orb--2" aria-hidden />
@@ -126,7 +126,7 @@ export function CourseCatalogPageLayout({
                 ))}
               </div>
             </div>
-          </header>
+          </div>
         ) : null}
 
         <div className="mw-catalog-layout">
