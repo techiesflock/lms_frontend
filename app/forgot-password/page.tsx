@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { AuthPageShell } from "@/components/dream-lms/pages/AuthPageShell";
-import { ForgotPasswordFormBody } from "@/components/dream-lms/pages/authBodies";
+import { ForgotPasswordPage } from "@/components/dream-lms/pages/ForgotPasswordPage";
 
 export const metadata: Metadata = {
-  title: "Forgot Password | MetaWaves",
+  title: "Forgot password | MetaWaves",
+  description: "Reset your MetaWaves account password.",
 };
 
 export default function Page() {
-  return (
-    <AuthPageShell>
-      <ForgotPasswordFormBody />
-    </AuthPageShell>
-  );
+  return <ForgotPasswordPage />;
 }

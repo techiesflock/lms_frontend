@@ -27,9 +27,9 @@ export const CATEGORY_BROWSE_PILLS = [
 export type CategoryIconTile = { icon: string; title: string; count: string; href: string };
 
 export const CATEGORY_V2_ICONS: CategoryIconTile[] = [
-  { icon: "img/icons/category-icon1.svg", title: "Management", count: "156 Courses", href: "/course-details-2" },
-  { icon: "img/icons/category-icon2.svg", title: "IT & Softwares", count: "214 Courses", href: "/course-details-2" },
-  { icon: "img/icons/category-icon3.svg", title: "Marketing", count: "174 Courses", href: "/course-details-2" },
+  { icon: "img/icons/category-icon1.svg", title: "Management", count: "156 Courses", href: "/course-details" },
+  { icon: "img/icons/category-icon2.svg", title: "IT & Softwares", count: "214 Courses", href: "/course-details" },
+  { icon: "img/icons/category-icon3.svg", title: "Marketing", count: "174 Courses", href: "/course-details" },
   { icon: "img/icons/category-icon4.svg", title: "Finance", count: "89 Courses", href: "#" },
   { icon: "img/icons/category-icon5.svg", title: "Design", count: "142 Courses", href: "/course-details" },
   { icon: "img/icons/category-icon6.svg", title: "Health", count: "56 Courses", href: "#" },

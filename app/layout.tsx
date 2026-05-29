@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { TemplateScripts } from "@/components/TemplateScripts";
 import "./globals.css";
-import "@/components/dream-lms/admin/admin.css";
 
 export const metadata: Metadata = {
   title: { default: "MetaWaves", template: "%s | MetaWaves" },

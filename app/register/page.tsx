@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { AuthPageShell } from "@/components/dream-lms/pages/AuthPageShell";
-import { RegisterFormBody } from "@/components/dream-lms/pages/authBodies";
+import { RegisterPage } from "@/components/dream-lms/pages/RegisterPage";
 
 export const metadata: Metadata = {
-  title: "Register | MetaWaves",
+  title: "Sign up | MetaWaves",
+  description: "Create your free MetaWaves account and start learning today.",
 };
 
 export default function Page() {
-  return (
-    <AuthPageShell>
-      <RegisterFormBody />
-    </AuthPageShell>
-  );
+  return <RegisterPage />;
 }

@@ -93,7 +93,6 @@ export const featuredCourses = [
     title: "Learn & Create ReactJS Tech Fundamentals Apps",
     authorImg: "img/user/user-07.jpg",
     author: "David Benitez",
-    detailHref: "/course-details-2" as const,
   },
 ] as const;
 

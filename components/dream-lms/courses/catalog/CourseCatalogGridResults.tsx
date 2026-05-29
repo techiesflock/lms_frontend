@@ -94,6 +94,9 @@ export function CourseCatalogGridResults({ courses, modern = false }: CourseCata
                 {course.discountBadge ? (
                   <span className="mw-course-card__badge">{course.discountBadge}</span>
                 ) : null}
+                <span className="mw-course-card__overlay" aria-hidden>
+                  View course
+                </span>
               </div>
             </Link>
 
@@ -109,9 +112,18 @@ export function CourseCatalogGridResults({ courses, modern = false }: CourseCata
                 <Link href="/course-details">{course.title}</Link>
               </h3>
 
-              <p className="mw-course-card__instructor">
-                <Link href="/instructor-details">{course.author}</Link>
-              </p>
+              <div className="mw-course-card__instructor-row">
+                <img
+                  src={assetPath(course.authorImg)}
+                  alt=""
+                  className="mw-course-card__avatar"
+                  width={28}
+                  height={28}
+                />
+                <p className="mw-course-card__instructor">
+                  <Link href="/instructor-details">{course.author}</Link>
+                </p>
+              </div>
 
               <div className="mw-course-card__meta">
                 <span className="mw-course-card__rating">
@@ -124,6 +136,18 @@ export function CourseCatalogGridResults({ courses, modern = false }: CourseCata
 
               <div className="mw-course-card__footer">
                 <span className="mw-course-card__price">{course.price}</span>
+                <Link href="/course-details" className="mw-course-card__cta">
+                  View course
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
           </article>

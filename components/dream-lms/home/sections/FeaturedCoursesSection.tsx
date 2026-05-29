@@ -15,7 +15,7 @@ export function FeaturedCoursesSection() {
         </div>
         <div className="feature-course-slider-2">
           {featuredCourses.map((course, i) => {
-            const detailHref = i === 4 ? "/course-details-2" : "/course-details";
+            const detailHref = "/course-details";
             return (
               <div key={`${course.title}-${i}`}>
                 <div className="course-item">

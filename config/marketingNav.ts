@@ -23,14 +23,7 @@ export const coursesNav: NavNode[] = [
       { kind: "link", label: "Course Category 3", href: "/course-category-3" },
     ],
   },
-  {
-    kind: "group",
-    label: "Course Details",
-    children: [
-      { kind: "link", label: "Course Details", href: "/course-details" },
-      { kind: "link", label: "Course Details 2", href: "/course-details-2" },
-    ],
-  },
+  { kind: "link", label: "Course Details", href: "/course-details" },
   { kind: "link", label: "Course Resume", href: "/course-resume" },
   { kind: "link", label: "Course Watch", href: "/course-watch" },
   { kind: "link", label: "Course Cart", href: "/cart" },

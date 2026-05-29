@@ -16,10 +16,10 @@ export default function CourseGridPage() {
         idPrefix="grid"
         variant="grid"
         modern
-        showLayoutToggle={false}
-        showCatalogHeader={false}
-        title="Browse courses"
-        description="Learn from industry experts with structured paths, hands-on projects, and certificates."
+        showLayoutToggle
+        showCatalogHeader
+        title="Explore courses"
+        description="Master in-demand skills with expert-led paths, hands-on projects, and certificates you can share."
         totalResults={50}
         results={<CourseCatalogGridResults courses={COURSE_CATALOG_ITEMS} modern />}
       />
