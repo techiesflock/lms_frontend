@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CartPage() {
   return (
-    <MarketingSubPage title="Course Cart" embedMain>
+    <MarketingSubPage title="Course Cart" embedMain hideBreadcrumb>
       <CartPageBody />
     </MarketingSubPage>
   );

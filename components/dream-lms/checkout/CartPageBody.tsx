@@ -1,154 +1,125 @@
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
+import { UdCoursePageShell } from "@/components/dream-lms/courses/shared/UdCoursePageShell";
 
 const CART_LINES = [
   {
     image: "img/course/course-01.jpg",
-    instructorImg: "img/user/user-01.jpg",
     instructor: "David Benitez",
     title: "Information About UI/UX Design Degree",
-    rating: "4.9 (200 Reviews)",
+    rating: "4.9",
+    reviews: 200,
     level: "Intermediate",
-    price: "$120",
+    price: 120,
+    originalPrice: 199,
   },
   {
     image: "img/course/course-03.jpg",
-    instructorImg: "img/user/user-08.jpg",
     instructor: "Andrew Pirtle",
     title: "Sketch from A to Z (2024): Become an app designer",
-    rating: "4.6 (170 Reviews)",
+    rating: "4.6",
+    reviews: 170,
     level: "Basic",
-    price: "$160",
+    price: 160,
+    originalPrice: 249,
   },
 ] as const;
 
 export function CartPageBody() {
+  const subtotal = CART_LINES.reduce((sum, line) => sum + line.price, 0);
+
   return (
-    <div className="content">
+    <UdCoursePageShell
+      title="Shopping cart"
+      subtitle={`${CART_LINES.length} courses in your cart`}
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Courses", href: "/course-grid" },
+        { label: "Cart" },
+      ]}
+    >
       <div className="container">
-        <div className="cart-cover">
-          <div className="cart-items">
-            <div>
-              <div className="cart-head border-bottom d-flex justify-content-between align-items-center pb-4">
-                <h5 className="mb-0">2 Courses</h5>
-                <div className="d-flex gap-2">
-                  <Link href="/cart-empty" className="btn btn-sm btn-outline-secondary mb-0">
-                    Empty state
-                  </Link>
-                  <button type="button" className="btn btn-sm btn-danger-ghost mb-0">
-                    <i className="isax isax-close-circle me-1" />
-                    Clear cart
-                  </button>
-                </div>
-              </div>
-              <div className="row row-gap-3 pb-3 mb-3 border-bottom">
-                {CART_LINES.map((line) => (
-                  <div key={line.title} className="col-md-12">
-                    <div className="cart-item mb-0">
-                      <div className="row align-items-center row-gap-3">
-                        <div className="col-md-3">
-                          <div className="cart-img">
-                            <Link href="/course-details">
-                              <img src={assetPath(line.image)} alt="" className="img-fluid w-100" />
-                            </Link>
-                          </div>
-                        </div>
-                        <div className="col-md-9">
-                          <div className="row align-items-center justify-content-between">
-                            <div className="col-md-9">
-                              <div className="d-flex align-items-center mb-2">
-                                <Link href="/instructor-details" className="avatar avatar-sm rounded-circle me-2">
-                                  <img src={assetPath(line.instructorImg)} alt="" className="img-fluid rounded-circle" />
-                                </Link>
-                                <p className="mb-0">
-                                  <Link href="/instructor-details">{line.instructor}</Link>
-                                </p>
-                              </div>
-                              <div className="mb-2">
-                                <h6 className="fs-18 mb-0">
-                                  <Link href="/course-details">{line.title}</Link>
-                                </h6>
-                              </div>
-                              <div className="d-flex align-items-center">
-                                <span className="star me-2">
-                                  <i className="fa-solid fa-star" />
-                                </span>
-                                <p className="mb-0">{line.rating}</p>
-                                <span className="mx-2 bg-secondary rounded-circle dot" />
-                                <p className="mb-0">{line.level}</p>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className="d-flex align-items-center justify-content-end gap-4 cart-trash">
-                                <h5 className="text-secondary">{line.price}</h5>
-                                <Link href="#" className="trash-btn" aria-label="Remove from cart">
-                                  <i className="isax isax-trash4" />
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="alert alert-warning d-flex align-items-center justify-content-between gap-3 mb-4">
-                <div>
-                  <h6 className="mb-1">Remove confirmation state</h6>
-                  <p className="mb-0 fs-14">Static UI for confirming a cart item removal before checkout.</p>
-                </div>
-                <div className="d-flex gap-2">
-                  <button type="button" className="btn btn-sm btn-light">
-                    Cancel
-                  </button>
-                  <button type="button" className="btn btn-sm btn-danger">
-                    Remove
-                  </button>
-                </div>
-              </div>
-              <div className="bg-light border rounded-2 p-3 mb-4">
-                <div className="row align-items-center row-gap-3">
-                  <div className="col-md-7">
-                    <label className="form-label fw-medium">Coupon code</label>
-                    <div className="input-group">
-                      <input className="form-control" defaultValue="LEARN25" aria-label="Coupon code" />
-                      <button type="button" className="btn btn-secondary">
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                  <div className="col-md-5">
-                    <span className="badge bg-success-subtle text-success me-2">LEARN25 applied</span>
-                    <span className="badge bg-danger-subtle text-danger">INVALID expired</span>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-light border rounded-2 p-3 mb-4">
-                <div className="row align-items-center justify-content-between row-gap-3">
-                  <div className="col-md-6">
-                    <h6 className="mb-1">Subtotal</h6>
-                    <p className="mb-0">
-                      All Courses have a <span className="text-gray-9 fw-medium mx-1">30-day</span>money-back guarantee
-                    </p>
-                  </div>
-                  <div className="col-md-6 text-end">
-                    <h5>$280</h5>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex align-items-center justify-content-end flex-wrap">
-                <Link href="/course-grid" className="btn continue-shopping-btn rounded-pill me-2">
-                  Continue Shopping
+        <div className="ud-flow-split">
+          <div className="ud-flow-split__main">
+            <div className="ud-flow-toolbar">
+              <h2 className="ud-flow-toolbar__title">{CART_LINES.length} courses</h2>
+              <div className="ud-flow-toolbar__actions">
+                <Link href="/cart-empty" className="ud-text-btn">
+                  Empty state
                 </Link>
-                <Link href="/checkout" className="btn checkout-btn rounded-pill">
-                  Checkout
-                </Link>
+                <button type="button" className="ud-text-btn ud-text-btn--danger">
+                  Clear cart
+                </button>
               </div>
             </div>
+
+            <ul className="ud-flow-cart-list">
+              {CART_LINES.map((line) => (
+                <li key={line.title} className="ud-flow-cart-item">
+                  <Link href="/course-details" className="ud-flow-cart-item__thumb">
+                    <img src={assetPath(line.image)} alt="" />
+                  </Link>
+                  <div className="ud-flow-cart-item__body">
+                    <p className="ud-flow-cart-item__instructor">{line.instructor}</p>
+                    <h3 className="ud-flow-cart-item__title">
+                      <Link href="/course-details">{line.title}</Link>
+                    </h3>
+                    <p className="ud-flow-cart-item__meta">
+                      <span className="ud-flow-rating">{line.rating}</span>
+                      <span>({line.reviews} ratings)</span>
+                      <span aria-hidden="true">·</span>
+                      <span>{line.level}</span>
+                    </p>
+                  </div>
+                  <div className="ud-flow-cart-item__price">
+                    <strong>${line.price}</strong>
+                    <span className="ud-flow-price-was">${line.originalPrice}</span>
+                    <button type="button" className="ud-text-btn ud-text-btn--danger" aria-label="Remove">
+                      Remove
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="ud-flow-coupon">
+              <label className="ud-flow-label" htmlFor="cart-coupon">
+                Coupon code
+              </label>
+              <div className="ud-flow-coupon__row">
+                <input id="cart-coupon" className="ud-flow-input" defaultValue="LEARN25" />
+                <button type="button" className="btn ud-btn-primary">
+                  Apply
+                </button>
+              </div>
+              <p className="ud-flow-hint">
+                <span className="ud-flow-badge ud-flow-badge--success">LEARN25 applied</span>
+              </p>
+            </div>
           </div>
+
+          <aside className="ud-flow-split__aside">
+            <div className="ud-flow-summary ud-flow-summary--sticky">
+              <h3 className="ud-flow-summary__title">Order summary</h3>
+              <div className="ud-flow-summary__row">
+                <span>Subtotal</span>
+                <strong>${subtotal}</strong>
+              </div>
+              <p className="ud-flow-summary__note">30-day money-back guarantee on all courses.</p>
+              <div className="ud-flow-summary__total">
+                <span>Total</span>
+                <strong>${subtotal}</strong>
+              </div>
+              <Link href="/checkout" className="btn ud-btn-primary w-100">
+                Proceed to checkout
+              </Link>
+              <Link href="/course-grid" className="btn ud-btn-outline w-100 mt-2">
+                Continue shopping
+              </Link>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
+    </UdCoursePageShell>
   );
 }

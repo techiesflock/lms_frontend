@@ -1,324 +1,162 @@
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
+import { UdCoursePageShell } from "@/components/dream-lms/courses/shared/UdCoursePageShell";
+
+const ORDER_LINES = [
+  { image: "img/course/course-01.jpg", title: "Information About UI/UX Design Degree", price: 120 },
+  { image: "img/course/course-03.jpg", title: "Sketch from A to Z (2024): Become an app designer", price: 160 },
+] as const;
+
+const STEPS = ["Billing", "Payment", "Confirmation"] as const;
 
 export function CheckoutPageBody() {
+  const subtotal = 280;
+  const tax = 25;
+  const total = 225.2;
+
   return (
-    <div className="content">
+    <UdCoursePageShell
+      title="Checkout"
+      subtitle="Secure payment — your courses are available immediately after purchase."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Cart", href: "/cart" },
+        { label: "Checkout" },
+      ]}
+    >
       <div className="container">
-        <div className="checkout-content">
-          <div className="card border-0 shadow-sm mb-4">
-            <div className="card-body">
-              <div className="row text-center row-gap-3">
-                {["Billing", "Payment", "Confirmation"].map((step, index) => (
-                  <div className="col-md-4" key={step}>
-                    <div className="d-flex align-items-center justify-content-center gap-2">
-                      <span
-                        className={`d-inline-flex align-items-center justify-content-center rounded-circle ${
-                          index === 0 ? "bg-secondary text-white" : "bg-light text-gray-9"
-                        }`}
-                        style={{ width: 36, height: 36 }}
-                      >
-                        {index + 1}
-                      </span>
-                      <span className="fw-medium">{step}</span>
-                    </div>
+        <ol className="ud-flow-steps" aria-label="Checkout progress">
+          {STEPS.map((step, index) => (
+            <li key={step} className={index === 0 ? "is-active" : ""}>
+              <span className="ud-flow-steps__num">{index + 1}</span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+
+        <div className="ud-flow-split">
+          <div className="ud-flow-split__main">
+            <section className="ud-flow-card">
+              <h2 className="ud-flow-card__title">Billing address</h2>
+              <form className="ud-flow-form" action="#">
+                <div className="ud-flow-form__grid">
+                  <div className="ud-flow-field">
+                    <label className="ud-flow-label" htmlFor="co-first">
+                      First name <span className="ud-flow-required">*</span>
+                    </label>
+                    <input id="co-first" className="ud-flow-input" type="text" />
                   </div>
+                  <div className="ud-flow-field">
+                    <label className="ud-flow-label" htmlFor="co-last">
+                      Last name <span className="ud-flow-required">*</span>
+                    </label>
+                    <input id="co-last" className="ud-flow-input" type="text" />
+                  </div>
+                  <div className="ud-flow-field ud-flow-field--full">
+                    <label className="ud-flow-label" htmlFor="co-address">
+                      Address <span className="ud-flow-required">*</span>
+                    </label>
+                    <input id="co-address" className="ud-flow-input" type="text" />
+                  </div>
+                  <div className="ud-flow-field">
+                    <label className="ud-flow-label" htmlFor="co-country">
+                      Country <span className="ud-flow-required">*</span>
+                    </label>
+                    <input id="co-country" className="ud-flow-input" type="text" />
+                  </div>
+                  <div className="ud-flow-field">
+                    <label className="ud-flow-label" htmlFor="co-city">
+                      City <span className="ud-flow-required">*</span>
+                    </label>
+                    <input id="co-city" className="ud-flow-input" type="text" />
+                  </div>
+                </div>
+                <label className="ud-flow-check">
+                  <input type="checkbox" defaultChecked />
+                  <span>Save this information for next time</span>
+                </label>
+              </form>
+            </section>
+
+            <section className="ud-flow-card">
+              <h2 className="ud-flow-card__title">Payment method</h2>
+              <div className="ud-flow-pay-tabs" role="tablist">
+                {["Card", "PayPal", "Stripe"].map((method, i) => (
+                  <button
+                    key={method}
+                    type="button"
+                    className={`ud-flow-pay-tab${i === 0 ? " is-active" : ""}`}
+                  >
+                    {method}
+                  </button>
                 ))}
               </div>
-            </div>
+              <div className="ud-flow-form__grid">
+                <div className="ud-flow-field ud-flow-field--full">
+                  <label className="ud-flow-label" htmlFor="co-card">
+                    Card number <span className="ud-flow-required">*</span>
+                  </label>
+                  <input id="co-card" className="ud-flow-input" type="text" placeholder="4242 4242 4242 4242" />
+                </div>
+                <div className="ud-flow-field">
+                  <label className="ud-flow-label" htmlFor="co-exp">
+                    Expiry <span className="ud-flow-required">*</span>
+                  </label>
+                  <input id="co-exp" className="ud-flow-input" type="text" placeholder="MM / YY" />
+                </div>
+                <div className="ud-flow-field">
+                  <label className="ud-flow-label" htmlFor="co-cvc">
+                    CVC <span className="ud-flow-required">*</span>
+                  </label>
+                  <input id="co-cvc" className="ud-flow-input" type="text" />
+                </div>
+              </div>
+              <div className="ud-flow-form-actions">
+                <Link href="/order-success" className="btn ud-btn-primary">
+                  Pay ${total.toFixed(2)}
+                </Link>
+              </div>
+            </section>
           </div>
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="checkout-item-1">
-                <div className="border-bottom pb-3 mb-3">
-                  <h5>Billing Address</h5>
-                </div>
-                <form action="#">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="input-block">
-                        <label className="form-label">
-                          First Name<span className="text-danger ms-1">*</span>
-                        </label>
-                        <input type="text" className="form-control" />
-                      </div>
+
+          <aside className="ud-flow-split__aside">
+            <div className="ud-flow-summary ud-flow-summary--sticky">
+              <h3 className="ud-flow-summary__title">Order details</h3>
+              <ul className="ud-flow-order-lines">
+                {ORDER_LINES.map((line) => (
+                  <li key={line.title} className="ud-flow-order-line">
+                    <img src={assetPath(line.image)} alt="" />
+                    <div>
+                      <p className="ud-flow-order-line__title">{line.title}</p>
+                      <strong>${line.price}</strong>
                     </div>
-                    <div className="col-md-6">
-                      <div className="input-block">
-                        <label className="form-label">
-                          Last Name<span className="text-danger ms-1">*</span>
-                        </label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="input-block">
-                        <label className="form-label">Phone Number (Optional)</label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="input-block">
-                        <label className="form-label">
-                          Address Line 1<span className="text-danger ms-1">*</span>
-                        </label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="input-block">
-                        <label className="form-label">Address Line 2 (Optional)</label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="input-block">
-                        <label className="form-label">
-                          Country<span className="text-danger ms-1">*</span>
-                        </label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="input-block">
-                        <label className="form-label">
-                          State<span className="text-danger ms-1">*</span>
-                        </label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="input-block">
-                        <label className="form-label">
-                          City<span className="text-danger ms-1">*</span>
-                        </label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="d-flex align-items-center mb-3">
-                        <div className="form-check d-flex">
-                          <input className="form-check-input" type="checkbox" id="checkout-ship-same" />
-                          <label className="form-check-label" htmlFor="checkout-ship-same">
-                            Shipping address is the same as my billing address
-                          </label>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <div className="form-check d-flex">
-                          <input className="form-check-input" type="checkbox" id="checkout-save-info" />
-                          <label className="form-check-label" htmlFor="checkout-save-info">
-                            Save this information for next time
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+                  </li>
+                ))}
+              </ul>
+              <div className="ud-flow-summary__row">
+                <span>Subtotal</span>
+                <span>${subtotal.toFixed(2)}</span>
               </div>
-              <div className="checkout-item-1">
-                <div className="border-bottom pb-3 mb-3">
-                  <h5>Payment Method </h5>
-                </div>
-                <ul className="nav-tabs mb-3 nav-justified border-0 nav-style-1 d-sm-flex d-block" role="tablist">
-                  <li className="nav-item active">
-                    <button
-                      type="button"
-                      className="btn nav-link p-3 active"
-                      data-bs-toggle="tab"
-                      data-bs-target="#co-pay-card"
-                    >
-                      <div className="d-flex justify-content-center align-items-center">
-                        <img src={assetPath("img/icons/card.svg")} alt="" className="img-fluid me-2" />
-                        <p className="fw-medium">Card</p>
-                      </div>
-                    </button>
-                  </li>
-                  <li className="nav-item">
-                    <button type="button" className="btn nav-link p-3" data-bs-toggle="tab" data-bs-target="#co-pay-paypal">
-                      <div className="d-flex justify-content-center align-items-center">
-                        <img src={assetPath("img/icons/paypal-2.svg")} alt="" className="img-fluid me-2" />
-                        <p className="fw-medium">Paypal</p>
-                      </div>
-                    </button>
-                  </li>
-                  <li className="nav-item">
-                    <button type="button" className="btn nav-link p-3" data-bs-toggle="tab" data-bs-target="#co-pay-stripe">
-                      <div className="d-flex justify-content-center align-items-center">
-                        <img src={assetPath("img/icons/stripe.svg")} alt="" className="img-fluid me-2" />
-                        <p className="fw-medium">Stripe</p>
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-                <div className="tab-content">
-                  <div className="tab-pane active show" id="co-pay-card" role="tabpanel">
-                    <div className="row">
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Card Number<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Name on Card<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Expiry Date<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Security Number<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-12">
-                        <div className="d-flex align-items-center justify-content-end">
-                          <Link href="/order-success" className="btn btn-secondary rounded-pill">
-                            Pay $225.20
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="tab-pane" id="co-pay-paypal" role="tabpanel">
-                    <div className="row">
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Email Address<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Password<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-12">
-                        <div className="d-flex align-items-center justify-content-end">
-                          <Link href="/order-success" className="btn btn-secondary rounded-pill">
-                            Pay $225.20
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="tab-pane" id="co-pay-stripe" role="tabpanel">
-                    <div className="row">
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Email Address<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="input-block">
-                          <label className="form-label">
-                            Password<span className="text-danger ms-1">*</span>
-                          </label>
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                      <div className="col-md-12">
-                        <div className="d-flex align-items-center justify-content-end">
-                          <Link href="/order-success" className="btn btn-secondary rounded-pill">
-                            Pay $225.20
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="ud-flow-summary__row">
+                <span>Tax (VAT)</span>
+                <span>${tax}</span>
+              </div>
+              <div className="ud-flow-summary__total">
+                <span>Total</span>
+                <strong>${total.toFixed(2)}</strong>
+              </div>
+              <div className="ud-flow-summary__links">
+                <Link href="/order-success" className="ud-text-btn">
+                  Success state →
+                </Link>
+                <Link href="/order-failed" className="ud-text-btn">
+                  Failed state →
+                </Link>
               </div>
             </div>
-            <div className="col-lg-4">
-              <div className="checkout-item-2">
-                <div className="pb-3 border-bottom mb-3">
-                  <h5 className="mb-0">Order Details</h5>
-                </div>
-                <div className="checkout-item-3 bg-light p-3 rounded-3 border mb-3">
-                  <div className="row row-gap-2 mb-3">
-                    <div className="col-md-12 d-flex align-items-center">
-                      <div className="order-img shrink-0 me-3">
-                        <img src={assetPath("img/course/course-01.jpg")} alt="" className="img-fluid h-100 w-100" />
-                        <Link href="#" className="btn p-1 rounded-circle" aria-label="Remove">
-                          <i className="isax isax-trash" />
-                        </Link>
-                      </div>
-                      <div>
-                        <h6 className="mb-2">
-                          <Link href="/course-details">Information About UI/UX Design Degree</Link>
-                        </h6>
-                        <h6 className="text-secondary">$120</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row row-gap-2">
-                    <div className="col-md-12 d-flex align-items-center">
-                      <div className="order-img shrink-0 me-3">
-                        <img src={assetPath("img/course/course-03.jpg")} alt="" className="img-fluid h-100 w-100" />
-                        <Link href="#" className="btn p-1 rounded-circle" aria-label="Remove">
-                          <i className="isax isax-trash" />
-                        </Link>
-                      </div>
-                      <div>
-                        <h6 className="mb-2">
-                          <Link href="/course-details">Sketch from A to Z (2024): Become an app designer</Link>
-                        </h6>
-                        <h6 className="text-secondary">$160</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="d-flex align-items-center justify-content-between mb-2">
-                  <p className="mb-0">Sub Total</p>
-                  <p className="text-gray-9 fw-medium mb-0">$200.20</p>
-                </div>
-                <div className="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
-                  <p className="mb-0">Tax (VAT)</p>
-                  <p className="text-gray-9 fw-medium mb-0">$25</p>
-                </div>
-                <div className="total d-flex align-items-center justify-content-between">
-                  <h6 className="mb-0">Total</h6>
-                  <h4 className="mb-0">$225.20</h4>
-                </div>
-                <div className="d-grid gap-2 mt-4">
-                  <Link href="/order-success" className="btn btn-secondary rounded-pill">
-                    View success state
-                  </Link>
-                  <Link href="/order-failed" className="btn btn-outline-danger rounded-pill">
-                    View failed state
-                  </Link>
-                  <Link href="/invoice" className="btn btn-outline-secondary rounded-pill">
-                    View invoice
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+          </aside>
         </div>
       </div>
-    </div>
+    </UdCoursePageShell>
   );
 }

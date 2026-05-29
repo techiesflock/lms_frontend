@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CourseWatchPage() {
   return (
-    <MarketingSubPage title="Course watch" embedMain>
+    <MarketingSubPage title="Course watch" embedMain hideBreadcrumb>
       <CourseWatchPageBody />
     </MarketingSubPage>
   );

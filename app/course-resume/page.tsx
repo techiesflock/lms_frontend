@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CourseResumePage() {
   return (
-    <MarketingSubPage title="Course Resume" embedMain>
+    <MarketingSubPage title="Course Resume" embedMain hideBreadcrumb>
       <CourseResumePageBody />
     </MarketingSubPage>
   );
