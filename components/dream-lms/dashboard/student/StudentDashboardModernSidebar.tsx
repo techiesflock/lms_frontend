@@ -5,7 +5,7 @@ import { STUDENT_NAV_SECTIONS, isStudentNavActive } from "./student-nav-config";
 
 export function StudentDashboardModernSidebar({ activeHref }: { activeHref: string }) {
   return (
-    <aside className="mw-idash__sidebar">
+    <aside id="mw-idash-sidebar" className="mw-idash__sidebar">
       <div className="mw-idash__sidebar-brand">
         <BrandLogo href="/" height={32} />
         <span className="mw-idash__sidebar-badge">Student</span>

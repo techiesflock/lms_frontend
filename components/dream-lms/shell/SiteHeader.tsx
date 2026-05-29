@@ -19,9 +19,11 @@ export function SiteHeader({ innerPage = false }: SiteHeaderProps) {
       <div className="container">
         <div className="header-nav">
           <div className="navbar-header">
-            <a id="mobile_btn" href="#">
+            <a id="mobile_btn" href="#" aria-label="Open menu">
               <span className="bar-icon">
-                <i className="isax isax-menu" />
+                <span />
+                <span />
+                <span />
               </span>
             </a>
             <div className="navbar-logo">
