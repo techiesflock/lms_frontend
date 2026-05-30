@@ -19,9 +19,11 @@ export function SiteHeader({ innerPage = false }: SiteHeaderProps) {
       <div className="container">
         <div className="header-nav">
           <div className="navbar-header">
-            <a id="mobile_btn" href="#">
+            <a id="mobile_btn" href="#" aria-label="Open menu">
               <span className="bar-icon">
-                <i className="isax isax-menu" />
+                <span />
+                <span />
+                <span />
               </span>
             </a>
             <div className="navbar-logo">
@@ -134,32 +136,9 @@ export function SiteHeader({ innerPage = false }: SiteHeaderProps) {
                       EURO
                     </a>
                   </li>
-                </ul>
-              </div>
-              <div className="dropdown mb-2">
-                <a
-                  href="#"
-                  className="dropdown-toggle theme-dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Light
-                </a>
-                <ul className="dropdown-menu p-2 mt-2">
                   <li>
-                    <a
-                      className="dropdown-item rounded light-mode-dropdown"
-                      href="javascript:void(0);"
-                    >
-                      Light
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item rounded dark-mode-dropdown"
-                      href="javascript:void(0);"
-                    >
-                      Dark
+                    <a className="dropdown-item rounded" href="#">
+                      INR
                     </a>
                   </li>
                 </ul>
@@ -245,25 +224,12 @@ export function SiteHeader({ innerPage = false }: SiteHeaderProps) {
                     EURO
                   </a>
                 </li>
+                <li>
+                  <a className="dropdown-item rounded" href="#">
+                    INR
+                  </a>
+                </li>
               </ul>
-            </div>
-            <div className="icon-btn">
-              <button
-                type="button"
-                id="dark-mode-toggle"
-                className="theme-toggle activate"
-                aria-label="Light mode"
-              >
-                <i className="isax isax-sun-15" />
-              </button>
-              <button
-                type="button"
-                id="light-mode-toggle"
-                className="theme-toggle"
-                aria-label="Dark mode"
-              >
-                <i className="isax isax-moon" />
-              </button>
             </div>
             <div className="icon-btn">
               <Link href="/cart" className="position-relative">
